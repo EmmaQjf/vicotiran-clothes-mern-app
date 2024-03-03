@@ -7,7 +7,7 @@
 
 import * as categoriesAPI from '../../utilities/categories-api';
 import {useState,useEffect} from 'react'
-import ClotheItem from '../ClotheItem/ClothesItem'
+import ClotheListItem from '../ClotheListItem/ClotheListItem'
 
 export default function ClothesList(
     {activeCat,
@@ -37,7 +37,7 @@ console.log(clothes)
         {
             clothes? 
                 clothes.map(cloth => 
-                    <ClotheItem
+                    <ClotheListItem
                     key={cloth._id}
                     cloth={cloth} />
                 )

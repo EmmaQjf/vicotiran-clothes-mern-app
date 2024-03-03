@@ -11,7 +11,7 @@ const routes = [
     {
 		Component: ClothePage,
 		key: 'Clothe',
-		path: '/clothe'
+		path: '/clothe/:id'
 	},
 	{
 		Component: OrderHistoryPage,

@@ -3,28 +3,16 @@ import * as categoriesAPI from '../../utilities/categories-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import ClothesList from '../../components/ClothesList/ClothesList'
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function HomePage(){
+
+
+export default function HomePage(
+    { user, setUser }
+){
     // get all categories
     const [categories, setCategories] = useState([])
-    // const [individualCategory, setIndividualCategory] = useState(null)
-    // useEffect(() => {
-    //     const fetchindividualCategory = async () => {
-    //         try {
-    //            const data = await categoriesAPI.getById()
-    //            setIndividualCategory(data) 
-              
-    //         } catch (error) {
-    //             console.error(error)
-    //         }
-    //     }
-    //     fetchindividualCategory()
-    // }, [])
-   
-   
-
     const [activeCat, setActiveCat] = useState('');
-    const [clothesList, setClothesList] = useState('');
     const [cart, setCart] = useState(null);
     const categoriesRef = useRef([]);
 
@@ -40,12 +28,21 @@ export default function HomePage(){
     }
         getAllCategories();
     }, []);
+
+    useEffect(function(){
+        async function getCart() {
+        const cart = await ordersAPI.getCart();
+        setCart(cart);
+      }
+      getCart();
+    }, [])
     
-      console.log(categories)
-      console.log(categoriesRef.current)
-      console.log(activeCat)
+
+
     return(
         <>
+            <UserLogOut
+            setUser={setUser}/>
             <CategoryList
             categories={categories}
             allcategories = {categoriesRef.current}
@@ -55,10 +52,13 @@ export default function HomePage(){
             <ClothesList 
             activeCat={activeCat}
             categories={categories}
-           
             />
-        </>
-        
-        
-        )
+
+            {/* <OrderDetail
+            order={cart}
+            handleChangeQty={handleChangeQty}
+            handleCheckout={handleCheckout}
+            /> */}
+    </>
+)
 }
