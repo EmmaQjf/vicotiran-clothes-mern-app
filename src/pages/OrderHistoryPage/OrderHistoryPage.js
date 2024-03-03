@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import * as ordersAPI from '../../utilities/orders-api';
 import Logo from '../../components/Logo/Logo';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
-//import OrderList from '../../components/OrderList/OrderList';
-//import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import OrderList from '../../components/OrderList/OrderList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 export default function OrderHistoryPage({ user, setUser }) {
   /*--- State --- */
@@ -37,14 +37,14 @@ export default function OrderHistoryPage({ user, setUser }) {
         <Link to="/home" className="button btn-sm">HOME</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
-      {/* <OrderList
+      <OrderList
         orders={orders}
         activeOrder={activeOrder}
         handleSelectOrder={handleSelectOrder}
       />
       <OrderDetail
         order={activeOrder}
-      /> */}
+      />
     </main>
   );
 }
