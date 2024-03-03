@@ -19,6 +19,7 @@ app.use('/api/users', require('./routes/api/users'));
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/items', ensureLoggedIn, require('./routes/api/items'));
 app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+app.use('/api/categories', ensureLoggedIn, require('./routes/api/categories'));
 
 app.use(logger('dev'))
 app.use(favicon(path.join(__dirname, 'public', 'img','logo.png')))

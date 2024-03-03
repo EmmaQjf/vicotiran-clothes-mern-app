@@ -6,7 +6,7 @@ import { getUser } from '../utilities/users-service';
 import AuthPage from '../pages/AuthPage/AuthPage';
 
 const AppRouter = () => {
-	const [user, setUser] = useState(null)
+	const [user, setUser] = useState(getUser())
 	return (
 		<Router>
 			<main className={styles.App}>
@@ -27,7 +27,7 @@ const AppRouter = () => {
 						}
 					></Route>
 				))}
-				<Route path='/*' element={<Navigate to="/orders/new"/>}/>
+				<Route path='/*' element={<Navigate to="/home"/>}/>
 			</Routes>
 			</>
 			:

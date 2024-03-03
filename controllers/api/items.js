@@ -1,10 +1,9 @@
 const Item = require('../../models/item');
-const Category = require('../../models/category');
+
 
 module.exports = {
   index,
-  show,
-  showCategory
+  show
 };
 
 async function index(req, res) {
@@ -27,12 +26,12 @@ async function show(req, res) {
   }  
 }
 
-async function showCategory(req, res) {
-  try{
-    const foundCategory = await Category.findOne({ _id: req.params.id });
-    res.status(200).json(foundCategory);
-  }catch(e){
-    res.status(400).json({ msg: e.message });
-  }  
-}
+// async function showCategory(req, res) {
+//   try{
+//     const foundCategory = await Category.findOne({ _id: req.params.id });
+//     res.status(200).json(foundCategory);
+//   }catch(e){
+//     res.status(400).json({ msg: e.message });
+//   }  
+// }
 //itemsCtrl.showCategory
