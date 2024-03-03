@@ -36,9 +36,7 @@ export default function HomePage(
       }
       getCart();
     }, [])
-    
-
-
+        console.log(user)
     return(
         <>
             <UserLogOut
@@ -54,11 +52,6 @@ export default function HomePage(
             categories={categories}
             />
 
-            {/* <OrderDetail
-            order={cart}
-            handleChangeQty={handleChangeQty}
-            handleCheckout={handleCheckout}
-            /> */}
     </>
 )
 }

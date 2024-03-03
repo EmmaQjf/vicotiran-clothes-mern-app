@@ -3,6 +3,7 @@ import routes from './routes';
 import { useState } from 'react'
 import styles from './AppRouter.module.scss';
 import { getUser } from '../utilities/users-service';
+import { getToken } from '../utilities/users-service';
 import AuthPage from '../pages/AuthPage/AuthPage';
 
 const AppRouter = () => {
