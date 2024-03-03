@@ -5,7 +5,6 @@ const itemsCtrl = require('../../controllers/api/items');
 // GET /api/items
 router.get('/', itemsCtrl.index);
 router.get('/categories/:id', itemsCtrl.showCategory);
-// GET /api/items/:id
 router.get('/:id', itemsCtrl.show);
 
 module.exports = router;
