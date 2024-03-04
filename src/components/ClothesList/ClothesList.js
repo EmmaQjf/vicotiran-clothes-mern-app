@@ -8,6 +8,7 @@
 import * as categoriesAPI from '../../utilities/categories-api';
 import {useState,useEffect} from 'react'
 import ClotheListItem from '../ClotheListItem/ClotheListItem'
+import styles from './ClothesList.module.scss'
 
 export default function ClothesList(
     {activeCat,
@@ -33,7 +34,7 @@ export default function ClothesList(
       }, [categories,activeCat]);
 console.log(clothes)
     return(
-        <>
+        <div className={styles.ClothesList}>
         {
             clothes? 
                 clothes.map(cloth => 
@@ -44,6 +45,6 @@ console.log(clothes)
         
             : <>No clothes</>
         }
-        </>
+        </div>
     )
 }

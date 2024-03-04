@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import UserLogOut from "../UserLogOut/UserLogOut";
 import Logo from '../Logo/Logo'
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, UserRound } from 'lucide-react';
 
 export default function Header(){
     return (
@@ -15,7 +15,10 @@ export default function Header(){
            <h1>Victorian Vintage Clothes</h1>
            </div>
           <UserLogOut />
+          <div>
+          <Link to = {'/auth'}><UserRound /> </Link>
           <ShoppingCart />
+          </div>
         </div>
 
     )
