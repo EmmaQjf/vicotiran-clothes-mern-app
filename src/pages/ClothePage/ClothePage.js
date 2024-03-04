@@ -6,7 +6,7 @@ import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import Cloth from '../../components/Cloth/Cloth'
 import { Link, useNavigate } from 'react-router-dom';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
-
+import Header from '../../components/Header/Header'
 
 export default function ClothePage({
     user, 
@@ -53,6 +53,7 @@ export default function ClothePage({
       }
     return(
      <>
+       <Header/>
        <h1>This is the ClothePage</h1>
         <Cloth 
         cloth = {oneCloth}

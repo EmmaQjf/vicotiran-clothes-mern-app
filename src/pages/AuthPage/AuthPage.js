@@ -9,11 +9,16 @@ export default function AuthPage({ setUser }) {
 
   return (
     <main className={styles.AuthPage}>
-      <div>
+      <div className={styles.center} >
         <Logo />
+        <div>Victorian Vintage Clothes</div>
+        </div>
+        <div>
         <h3 onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</h3>
-      </div>
+        </div>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
     </main>
   );
 }
+
+//style={{ margin: '0 auto' }}

@@ -3,7 +3,7 @@ import * as categoriesAPI from '../../utilities/categories-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import ClothesList from '../../components/ClothesList/ClothesList'
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import Header from '../../components/Header/Header'
 
 
 
@@ -39,14 +39,16 @@ export default function HomePage(
         console.log(user)
     return(
         <>
-            <UserLogOut
-            setUser={setUser}/>
+           <Header/>
+            {/* <UserLogOut
+            setUser={setUser}/> */}
             <CategoryList
             categories={categories}
             allcategories = {categoriesRef.current}
             activeCat={activeCat}
             setActiveCat={setActiveCat}
             />
+
             <ClothesList 
             activeCat={activeCat}
             categories={categories}

@@ -1,0 +1,17 @@
+.Header{
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    justify-items: start;
+    align-items: center;
+
+
+    .flex{
+        display: flex;
+        align-items: center;
+    }
+
+    margin-top: none
+
+    
+    
+}
