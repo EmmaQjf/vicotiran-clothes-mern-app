@@ -10,6 +10,7 @@ import styles from './HomePage.module.scss'
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import Cloth from '../../components/Cloth/Cloth'
 import * as itemsAPI from '../../utilities/items-api'
+import { set } from '../../../models/itemSchema';
 
 export default function HomePage(
     { user, setUser }
@@ -19,6 +20,7 @@ export default function HomePage(
     const [activeCat, setActiveCat] = useState('');
     const [cart, setCart] = useState(null);
     const categoriesRef = useRef([]);
+  
 
     useEffect(function() {
         async function getAllCategories(){
@@ -40,9 +42,6 @@ export default function HomePage(
       }
       getCart();
     }, [])
-        console.log(user)
-
-
        
         const[currentItem, setCurrentItem] = useState({})
         const[showClothPage, setShowClothPage] = useState(true)
@@ -63,11 +62,23 @@ export default function HomePage(
             await ordersAPI.checkout();
             navigate('/orders');
           }
+
+
+          //deal with the cart 
+          const [quantity, setQuantity] = useState(0)
+          useEffect(()=> {
+            if (cart) {
+                setQuantity(cart.totalQty)
+            } else {
+                setQuantity(0)
+            }
+        },[cart]) 
+     
     return(
 
         <div className={styles.HomePage}>
            
-           <Header setUser={setUser}/>
+           <Header setUser={setUser} quantity={quantity}/>
             {/* <UserLogOut
             setUser={setUser}/> */}
             <h1>Welcome! {user.name}</h1>
@@ -101,6 +112,7 @@ export default function HomePage(
                         order={cart}
                         handleChangeQty={handleChangeQty}
                         handleCheckout={handleCheckout}
+                        setQuantity ={setQuantity}
                         />
                     </div>
                 </div>

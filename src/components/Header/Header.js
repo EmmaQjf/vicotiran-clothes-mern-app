@@ -13,34 +13,10 @@ import * as ordersAPI from '../../utilities/orders-api'
 
 
 export default function Header(
-    {setUser}
+    {setUser, 
+    quantity}
 ){
-    const [quantity, setQuantity] = useState(0)
-    const [cart, setCart] = useState({})
-    useEffect(function(){
-        async function getCart() {
-        const cart = await ordersAPI.getCart();
-        setCart(cart);
-      }
-      getCart();
-    }, [])
-    useEffect(()=> {
-        if (cart.totalQty) {
-            setQuantity(cart.totalQty)
-        } else {
-            setQuantity(0)
-        }
-    },[cart]) 
- 
-
-  
-    console.log(cart)
-    console.log(quantity)
-    // console.log(quantity)
-
-
-
-
+    
     return (
         <div className={styles.Header}>
            <div className={styles.flex}>

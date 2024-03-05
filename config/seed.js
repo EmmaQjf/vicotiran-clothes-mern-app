@@ -26,11 +26,11 @@ const Item = require('../models/item');
   
         {title: 'Embroidered Cotton Blouse', desc: 'handmade',img:"👚", categories:[categories[1],categories[4]],size:['XS','S','M','L','XL'],color:['red','blue','white','black'], price: 30},
   
-        {title: 'White Satin Blouse', desc: 'handmade',img:"https://i.imgur.com/b5EtpHJ.jpg", categories:[categories[1],categories[4]],size:['XS','S','M','L','XL'],color:['red','blue','white','black'], price: 30},
+        {title: 'White Satin Blouse', desc: 'handmade',img:"👕", categories:[categories[1],categories[4]],size:['XS','S','M','L','XL'],color:['red','blue','white','black'], price: 30},
   
-        {title: 'black ruffle Blouse', desc: 'handmade',img:"https://i.imgur.com/9i3G8Te.jpg", categories:[categories[1],categories[4]], size:['XS','S','M','L','XL'],color:['red','blue','white','black'],price: 30},
+        {title: 'black ruffle Blouse', desc: 'handmade',img:"👕", categories:[categories[1],categories[4]], size:['XS','S','M','L','XL'],color:['red','blue','white','black'],price: 30},
 
-        {title: 'White linen Blend Blouse', desc: 'handmade',img:"https://i.imgur.com/b5EtpHJ.jpg", categories:[categories[1],categories[4]], size:['XS','S','M','L','XL'],color:['red','blue','white','black'],price: 30},
+        {title: 'White linen Blend Blouse', desc: 'handmade',img:"👕", categories:[categories[1],categories[4]], size:['XS','S','M','L','XL'],color:['red','blue','white','black'],price: 30},
   
         {title: 'White Stripe Linen Blend Skirt', desc: 'handmade',img:"👗", categories:[categories[2],categories[4]],size:['XS','S','M','L','XL'],color:['red','blue','white','black'], price: 50},
   

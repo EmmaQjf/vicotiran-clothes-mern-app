@@ -9,11 +9,11 @@ const routes = [
 		key: 'Home',
 		path: '/home'
 	},
-    {
-		Component: ClothePage,
-		key: 'Clothe',
-		path: '/clothe/:id'
-	},
+    // {
+	// 	Component: ClothePage,
+	// 	key: 'Clothe',
+	// 	path: '/clothe/:id'
+	// },
 	{
 		Component: OrderHistoryPage,
 		key: 'OrderHistory',

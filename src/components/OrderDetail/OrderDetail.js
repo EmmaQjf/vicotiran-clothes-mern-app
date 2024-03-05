@@ -1,9 +1,11 @@
 import styles from './OrderDetail.module.scss';
 import LineItem from '../LineItem/LineItem';
+import {useEffect} from 'react'
 
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ 
-    order, handleChangeQty, handleCheckout
+    order, handleChangeQty, handleCheckout,
+    setQuantity 
 }) {
     if (!order) return null;
 
@@ -15,6 +17,10 @@ export default function OrderDetail({
         key={item._id}
       />
     );
+
+    useEffect(()=> {
+      setQuantity(order.totalQty)
+    },[order])
      
     return (
       <div className={styles.OrderDetail}>
