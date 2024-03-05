@@ -12,7 +12,10 @@ import styles from './ClothesList.module.scss'
 
 export default function ClothesList(
     {activeCat,
-    categories}
+    categories,
+    setCurrentItem,
+    showClothPage,
+    setShowClothPage}
 ){
    
     const[clothes, setClothes] = useState([])
@@ -40,7 +43,11 @@ console.log(clothes)
                 clothes.map(cloth => 
                     <ClotheListItem
                     key={cloth._id}
-                    cloth={cloth} />
+                    cloth={cloth} 
+                    setCurrentItem={setCurrentItem}
+                    showClothPage={showClothPage}
+                    setShowClothPage={setShowClothPage}
+                   />
                 )
         
             : <>No clothes</>

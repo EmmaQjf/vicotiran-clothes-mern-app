@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import * as categoriesAPI from '../../utilities/categories-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import ClothesList from '../../components/ClothesList/ClothesList'
 import Header from '../../components/Header/Header'
+import styles from './HomePage.module.scss'
 
-
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import Cloth from '../../components/Cloth/Cloth'
+import * as itemsAPI from '../../utilities/items-api'
 
 export default function HomePage(
     { user, setUser }
@@ -38,8 +41,31 @@ export default function HomePage(
       getCart();
     }, [])
         console.log(user)
+
+
+       
+        const[currentItem, setCurrentItem] = useState({})
+        const[showClothPage, setShowClothPage] = useState(true)
+
+        const navigate = useNavigate();
+
+        async function handleAddToOrder(itemId) {
+            const updatedCart = await ordersAPI.addItemToCart(itemId);
+            setCart(updatedCart);
+          }
+        
+          async function handleChangeQty(itemId, newQty) {
+            const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+            setCart(updatedCart);
+          }
+        
+          async function handleCheckout() {
+            await ordersAPI.checkout();
+            navigate('/orders');
+          }
     return(
-        <>
+
+        <div className={styles.HomePage}>
            
            <Header setUser={setUser}/>
             {/* <UserLogOut
@@ -51,13 +77,36 @@ export default function HomePage(
             allcategories = {categoriesRef.current}
             activeCat={activeCat}
             setActiveCat={setActiveCat}
+            setShowClothPage={setShowClothPage}
             />
+            {
+                showClothPage? 
+                <ClothesList 
+                activeCat={activeCat}
+                categories={categories}
+                setCurrentItem={setCurrentItem}
+                showClothPage={showClothPage}
+                setShowClothPage={setShowClothPage}
+                />
+                :<div className={styles.ClothPage}>
+                    <div>
+                        <Cloth 
+                        cloth = {currentItem}
+                        handleAddToOrder={handleAddToOrder}
+                        />
+                    </div>
+            
+                    <div>
+                        <OrderDetail
+                        order={cart}
+                        handleChangeQty={handleChangeQty}
+                        handleCheckout={handleCheckout}
+                        />
+                    </div>
+                </div>
+            }
+            
 
-            <ClothesList 
-            activeCat={activeCat}
-            categories={categories}
-            />
-
-    </>
+    </div>
 )
 }
