@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 import * as categoriesAPI from '../../utilities/categories-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -39,9 +40,12 @@ export default function HomePage(
         console.log(user)
     return(
         <>
-           <Header/>
+           
+           <Header setUser={setUser}/>
             {/* <UserLogOut
             setUser={setUser}/> */}
+            <h1>Welcome! {user.name}</h1>
+
             <CategoryList
             categories={categories}
             allcategories = {categoriesRef.current}

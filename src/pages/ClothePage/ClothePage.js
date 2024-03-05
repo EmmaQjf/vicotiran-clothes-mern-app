@@ -7,11 +7,15 @@ import Cloth from '../../components/Cloth/Cloth'
 import { Link, useNavigate } from 'react-router-dom';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import Header from '../../components/Header/Header'
+import styles from './ClothePage.module.scss'
+
 
 export default function ClothePage({
     user, 
     setUser
 }){
+
+
 
     const [oneCloth, setOneCloth] = useState({})
     const {id} = useParams()
@@ -37,6 +41,8 @@ export default function ClothePage({
       getCart();
     }, [])
 
+   
+
     async function handleAddToOrder(itemId) {
         const updatedCart = await ordersAPI.addItemToCart(itemId);
         setCart(updatedCart);
@@ -52,18 +58,26 @@ export default function ClothePage({
         navigate('/orders');
       }
     return(
-     <>
-       <Header/>
-       <h1>This is the ClothePage</h1>
+     <div className={styles.ClothePage}>
+       <Header
+       setUser ={setUser}/>
+       {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link> */}
+       <div className={styles.sections}>
+        <div>
         <Cloth 
         cloth = {oneCloth}
         handleAddToOrder={handleAddToOrder}
         id = {id}/>
+        </div>
+
+        <div>
         <OrderDetail
         order={cart}
         handleChangeQty={handleChangeQty}
         handleCheckout={handleCheckout}
-      />
-     </>
+       />
+        </div>
+        </div>
+     </div>
     )
 }

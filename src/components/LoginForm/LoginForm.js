@@ -9,7 +9,7 @@ const [credentials, setCredentials] = useState({
 });
 const [error, setError] = useState('');
 
-const navigateTo = useNavigate()
+// const navigateTo = useNavigate()
 function handleChange(evt) {
   setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
   setError('');
@@ -23,8 +23,8 @@ async function handleSubmit(evt) {
     // will resolve to the user object included in the
     // payload of the JSON Web Token (JWT)
     const user = await usersService.login(credentials);
-    navigateTo('/home')
     setUser(user);
+    // navigateTo('/home')
   } catch {
     setError('Log In Failed - Try Again');
   }

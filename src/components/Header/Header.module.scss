@@ -1,6 +1,6 @@
 .Header{
     display: grid;
-    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-columns: 5fr 1fr 1fr 1fr;
     justify-items: start;
     align-items: center;
 
@@ -10,8 +10,10 @@
         align-items: center;
     }
 
-    margin-top: none
-
-    
+    .link {
+        text-decoration: none;
+        color: black;
+      }
+    margin-top: none;
     
 }

@@ -1,0 +1,16 @@
+.Cloth{
+    font-size: 2rem;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .box{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+}
