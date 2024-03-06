@@ -8,9 +8,9 @@ import styles from './LineItem.module.scss'
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
     return (
       <div className={styles.LineItem}>
-        <div className="flex-ctr-ctr flex-col">
-        <span className="align-ctr">{lineItem.item.title}</span>
-        <span className="align-ctr">{lineItem.item.img}</span>
+        <div className="flex-col">
+          <div className="align-ctr">{lineItem.item.title}</div>
+          <div className="align-ctr"><img src={lineItem.item.img}/></div>
           <span>{lineItem.item.price.toFixed(2)}</span>
         </div>
         <div className={styles.qty} style={{ justifyContent: isPaid && 'center' }}>

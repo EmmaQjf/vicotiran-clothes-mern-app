@@ -9,7 +9,7 @@ async function index(req, res) {
   try{
     const categories = await Category.find({}).sort('name').populate('items').exec();
     // re-sort based upon the sortOrder of the categories
-    categories.sort((a, b) => a.name.sortOrder - b.name.sortOrder);
+    categories.sort((a, b) => a.sortOrder - b.sortOrder);
     res.status(200).json(categories);
   }catch(e){
     res.status(400).json({ msg: e.message });

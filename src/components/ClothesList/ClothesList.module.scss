@@ -1,7 +1,8 @@
 .ClothesList{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.25vmin;
+    grid-template-rows: auto;
+    gap: 3vmin;
     justify-items: center;
     align-items: center;
 }

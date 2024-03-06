@@ -81,7 +81,7 @@ export default function HomePage(
            <Header setUser={setUser} quantity={quantity}/>
             {/* <UserLogOut
             setUser={setUser}/> */}
-            <h1>Welcome! {user.name}</h1>
+            <h3>Welcome! {user.name}</h3>
 
             <CategoryList
             categories={categories}
@@ -108,7 +108,7 @@ export default function HomePage(
                     </div>
             
                     <div>
-                        <OrderDetail
+                        <OrderDetail 
                         order={cart}
                         handleChangeQty={handleChangeQty}
                         handleCheckout={handleCheckout}

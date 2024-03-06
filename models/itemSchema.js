@@ -4,7 +4,7 @@ const Schema = require('mongoose').Schema;
 
 const itemSchema = new Schema(
         {
-          title: { type: String, required: true, unique: true },
+          title: { type: String, required: true },
           desc: { type: String, required: true },
           img: { type: String, required: true },
           categories: [{type: Schema.Types.ObjectId, ref:'Category'}],

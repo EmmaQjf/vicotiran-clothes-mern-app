@@ -11,6 +11,7 @@ export default function OrderHistoryPage({ user, setUser }) {
   /*--- State --- */
   const [orders, setOrders] = useState([]);
   const [activeOrder, setActiveOrder] = useState(null);
+  const [quantity, setQuantity] = useState(0)
 
   /*--- Side Effects --- */
   useEffect(function () {
@@ -43,6 +44,7 @@ export default function OrderHistoryPage({ user, setUser }) {
       />
       <OrderDetail
         order={activeOrder}
+        setQuantity={setQuantity}
       />
     </main>
   );

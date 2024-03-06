@@ -8,17 +8,16 @@ export default function ClotheListItem(
 
 ){   
 
-                  
     return(
-        <>
+        <div className={styles.container}>
             <div key={cloth._id} className={styles.card}>
-            <h3>{cloth.title} </h3>
-            <h3>{cloth.img} </h3>
-            {/* <button><Link to = {`/clothe/${cloth._id}` }> More details</Link></button> */}
-            <button onClick={()=> {setShowClothPage(!showClothPage); setCurrentItem(cloth)}}> More details</button>
-           
-            </div>
             
-        </>
+                <img src={cloth.img} className={styles.image}/>
+                <h3 className={styles.h3}>{cloth.title} </h3>
+                <h3 className={styles.h3}>${cloth.price} </h3>
+                
+                <button onClick={()=> {setShowClothPage(!showClothPage); setCurrentItem(cloth)}}> More details</button>
+             </div>  
+        </div>
     )
 }

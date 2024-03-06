@@ -9,18 +9,17 @@ export default function Clothe(
                   
     return(
       <div className={styles.Cloth}>
-        <div>{cloth.img} </div>
+        <img src={cloth.img} className={styles.image}/>
         <div className={styles.box}>
-        <div>{cloth.title} </div>
-        <div>{cloth.desc} </div>
-        <div>{cloth.price} </div>
-        <div>{cloth.size} </div>
-        <div>{cloth.color} </div>
-        <button onClick={() => handleAddToOrder(cloth._id)}>
-      ADD
-        </button>  
-        </div>
-        
+          <h3>{cloth.title} </h3>
+          <div>{cloth.desc} </div>
+          <div>${cloth.price} </div>
+          <div>{cloth.size} </div>
+          <div>{cloth.color} </div>
+          <button onClick={() => handleAddToOrder(cloth._id)}>
+           ADD
+          </button>  
+        </div> 
       </div>
     )
 }

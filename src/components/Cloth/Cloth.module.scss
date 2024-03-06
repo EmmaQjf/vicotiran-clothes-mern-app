@@ -3,14 +3,23 @@
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-items: center;
+    align-items: center;
 
     .box{
         display:flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        margin: 1.5em;
+        font-family:'Courier New', Courier, monospace;
+        font-size: 1.2rem; 
+    }
+
+    background-color: mintcream;
+    img{
+        width: 300px;
+        height: auto;
     }
 
 }

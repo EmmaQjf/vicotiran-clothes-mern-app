@@ -55,6 +55,7 @@ orderSchema.methods.addItemToCart = async function(itemId) {
   // Check if item already in cart
   const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
   if (lineItem) {
+
     lineItem.qty += 1;
   } else {
     const item = await mongoose.model('Item').findById(itemId);

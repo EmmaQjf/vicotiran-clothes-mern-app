@@ -26,11 +26,11 @@ export default function OrderDetail({
       <div className={styles.OrderDetail}>
         <div className={styles.sectionHeading}>
           {order.isPaid ?
-            <span>ORDER <span className="smaller">{order.orderId}</span></span>
+            <span className={styles.cartTitle}>Style in your bag &nbsp;&nbsp;&nbsp;&nbsp;<span className="smaller">{order.orderId}</span></span>
             :
-            <span>NEW ORDER</span>
+            <span className={styles.cartTitle}>Styles in your bag</span>
           }
-          <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span>{new Date(order.updatedAt).toLocaleDateString()}</span>
         </div>
         <div className={`${styles.lineItemContainer} flex-ctr-ctr flex-col scroll-y`}>
           {lineItems.length ?
@@ -51,7 +51,7 @@ export default function OrderDetail({
               </section>
             </>
             :
-            <div className={styles.hungry}>Hungry?</div>
+            <div className={styles.hungry}>The cart is empty.</div>
           }
         </div>
       </div>

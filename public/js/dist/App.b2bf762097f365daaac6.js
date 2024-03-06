@@ -51,8 +51,7 @@ const Schema = (__webpack_require__(/*! mongoose */ "./node_modules/mongoose/dis
 const itemSchema = new Schema({
   title: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   desc: {
     type: String,
@@ -152,9 +151,12 @@ function Clothe(_ref) {
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
     className: _Cloth_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].Cloth
-  }, /*#__PURE__*/React.createElement("div", null, cloth.img, " "), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    src: cloth.img,
+    className: _Cloth_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].image
+  }), /*#__PURE__*/React.createElement("div", {
     className: _Cloth_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].box
-  }, /*#__PURE__*/React.createElement("div", null, cloth.title, " "), /*#__PURE__*/React.createElement("div", null, cloth.desc, " "), /*#__PURE__*/React.createElement("div", null, cloth.price, " "), /*#__PURE__*/React.createElement("div", null, cloth.size, " "), /*#__PURE__*/React.createElement("div", null, cloth.color, " "), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("h3", null, cloth.title, " "), /*#__PURE__*/React.createElement("div", null, cloth.desc, " "), /*#__PURE__*/React.createElement("div", null, "$", cloth.price, " "), /*#__PURE__*/React.createElement("div", null, cloth.size, " "), /*#__PURE__*/React.createElement("div", null, cloth.color, " "), /*#__PURE__*/React.createElement("button", {
     onClick: () => handleAddToOrder(cloth._id)
   }, "ADD")));
 }
@@ -182,10 +184,19 @@ function ClotheListItem(_ref) {
     showClothPage,
     setShowClothPage
   } = _ref;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
+    className: _ClotheListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].container
+  }, /*#__PURE__*/React.createElement("div", {
     key: cloth._id,
     className: _ClotheListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].card
-  }, /*#__PURE__*/React.createElement("h3", null, cloth.title, " "), /*#__PURE__*/React.createElement("h3", null, cloth.img, " "), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("img", {
+    src: cloth.img,
+    className: _ClotheListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].image
+  }), /*#__PURE__*/React.createElement("h3", {
+    className: _ClotheListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].h3
+  }, cloth.title, " "), /*#__PURE__*/React.createElement("h3", {
+    className: _ClotheListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].h3
+  }, "$", cloth.price, " "), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       setShowClothPage(!showClothPage);
       setCurrentItem(cloth);
@@ -347,12 +358,14 @@ function LineItem(_ref) {
   return /*#__PURE__*/React.createElement("div", {
     className: _LineItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].LineItem
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex-ctr-ctr flex-col"
-  }, /*#__PURE__*/React.createElement("span", {
+    className: "flex-col"
+  }, /*#__PURE__*/React.createElement("div", {
     className: "align-ctr"
-  }, lineItem.item.title), /*#__PURE__*/React.createElement("span", {
+  }, lineItem.item.title), /*#__PURE__*/React.createElement("div", {
     className: "align-ctr"
-  }, lineItem.item.img), /*#__PURE__*/React.createElement("span", null, lineItem.item.price.toFixed(2))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    src: lineItem.item.img
+  })), /*#__PURE__*/React.createElement("span", null, lineItem.item.price.toFixed(2))), /*#__PURE__*/React.createElement("div", {
     className: _LineItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].qty,
     style: {
       justifyContent: isPaid && 'center'
@@ -513,9 +526,13 @@ function OrderDetail(_ref) {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].OrderDetail
   }, /*#__PURE__*/React.createElement("div", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].sectionHeading
-  }, order.isPaid ? /*#__PURE__*/React.createElement("span", null, "ORDER ", /*#__PURE__*/React.createElement("span", {
+  }, order.isPaid ? /*#__PURE__*/React.createElement("span", {
+    className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cartTitle
+  }, "Style in your bag \xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", {
     className: "smaller"
-  }, order.orderId)) : /*#__PURE__*/React.createElement("span", null, "NEW ORDER"), /*#__PURE__*/React.createElement("span", null, new Date(order.updatedAt).toLocaleDateString())), /*#__PURE__*/React.createElement("div", {
+  }, order.orderId)) : /*#__PURE__*/React.createElement("span", {
+    className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cartTitle
+  }, "Styles in your bag"), "\xA0\xA0\xA0\xA0", /*#__PURE__*/React.createElement("span", null, new Date(order.updatedAt).toLocaleDateString())), /*#__PURE__*/React.createElement("div", {
     className: "".concat(_OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].lineItemContainer, " flex-ctr-ctr flex-col scroll-y")
   }, lineItems.length ? /*#__PURE__*/React.createElement(React.Fragment, null, lineItems, /*#__PURE__*/React.createElement("section", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].total
@@ -529,7 +546,7 @@ function OrderDetail(_ref) {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].right
   }, "$", order.orderTotal.toFixed(2)))) : /*#__PURE__*/React.createElement("div", {
     className: _OrderDetail_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].hungry
-  }, "Hungry?")));
+  }, "The cart is empty.")));
 }
 
 /***/ }),
@@ -981,7 +998,7 @@ function HomePage(_ref) {
   }, /*#__PURE__*/React.createElement(_components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     setUser: setUser,
     quantity: quantity
-  }), /*#__PURE__*/React.createElement("h1", null, "Welcome! ", user.name), /*#__PURE__*/React.createElement(_components_CategoryList_CategoryList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), /*#__PURE__*/React.createElement("h3", null, "Welcome! ", user.name), /*#__PURE__*/React.createElement(_components_CategoryList_CategoryList__WEBPACK_IMPORTED_MODULE_1__["default"], {
     categories: categories,
     allcategories: categoriesRef.current,
     activeCat: activeCat,
@@ -1044,6 +1061,7 @@ function OrderHistoryPage(_ref) {
   /*--- State --- */
   const [orders, setOrders] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
   const [activeOrder, setActiveOrder] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
+  const [quantity, setQuantity] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
 
   /*--- Side Effects --- */
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
@@ -1077,7 +1095,8 @@ function OrderHistoryPage(_ref) {
     activeOrder: activeOrder,
     handleSelectOrder: handleSelectOrder
   }), /*#__PURE__*/React.createElement(_components_OrderDetail_OrderDetail__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    order: activeOrder
+    order: activeOrder,
+    setQuantity: setQuantity
   }));
 }
 
@@ -1659,15 +1678,23 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.waIA7HQFOO0iVnDL6FIm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-items: center;
+  align-items: center;
+  background-color: mintcream;
 }
 .waIA7HQFOO0iVnDL6FIm .zZs5xuV7jkWfKJlTAjfR {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-}`, "",{"version":3,"sources":["webpack://./src/components/Cloth/Cloth.module.scss"],"names":[],"mappings":"AAAA;EACI,eAAA;EACA,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,2BAAA;EACA,uBAAA;AACJ;AACI;EACI,aAAA;EACA,sBAAA;EACA,2BAAA;EACA,uBAAA;AACR","sourcesContent":[".Cloth{\n    font-size: 2rem;\n    display:grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr;\n    justify-content: flex-start;\n    align-items: flex-start;\n\n    .box{\n        display:flex;\n        flex-direction: column;\n        justify-content: flex-start;\n        align-items: flex-start;\n    }\n\n}"],"sourceRoot":""}]);
+  margin: 1.5em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+}
+.waIA7HQFOO0iVnDL6FIm img {
+  width: 300px;
+  height: auto;
+}`, "",{"version":3,"sources":["webpack://./src/components/Cloth/Cloth.module.scss"],"names":[],"mappings":"AAAA;EACI,eAAA;EACA,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,qBAAA;EACA,mBAAA;EAYA,2BAAA;AAVJ;AAAI;EACI,aAAA;EACA,sBAAA;EACA,2BAAA;EACA,uBAAA;EACA,aAAA;EACA,8CAAA;EACA,iBAAA;AAER;AAEI;EACI,YAAA;EACA,YAAA;AAAR","sourcesContent":[".Cloth{\n    font-size: 2rem;\n    display:grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr;\n    justify-items: center;\n    align-items: center;\n\n    .box{\n        display:flex;\n        flex-direction: column;\n        justify-content: flex-start;\n        align-items: flex-start;\n        margin: 1.5em;\n        font-family:'Courier New', Courier, monospace;\n        font-size: 1.2rem; \n    }\n\n    background-color: mintcream;\n    img{\n        width: 300px;\n        height: auto;\n    }\n\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"Cloth": `waIA7HQFOO0iVnDL6FIm`,
@@ -1697,21 +1724,36 @@ ___CSS_LOADER_EXPORT___.locals = {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.kXXaVWIvQjyQcLsaAkmm {
+___CSS_LOADER_EXPORT___.push([module.id, `.HnbANo8qAyH7VsiRHpyB .kXXaVWIvQjyQcLsaAkmm {
   flex: 1;
-  margin: 10px;
+  margin: 0 10px;
   width: 280px;
-  height: 350px;
-  background-color: var(--tan-2);
-  display: flex;
-  flex-direction: column;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70% 10% 10% 10%;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-}`, "",{"version":3,"sources":["webpack://./src/components/ClotheListItem/ClotheListItem.module.scss"],"names":[],"mappings":"AACI;EACI,OAAA;EACA,YAAA;EACA,YAAA;EACA,aAAA;EACA,8BAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,eAAA;AAAR","sourcesContent":["\n    .card{\n        flex: 1;\n        margin: 10px;\n        width: 280px;\n        height: 350px;\n        background-color: var(--tan-2);\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        padding:0.5rem\n    }\n"],"sourceRoot":""}]);
+  justify-items: center;
+  overflow: hidden;
+}
+.HnbANo8qAyH7VsiRHpyB :hover {
+  box-shadow: 0 0 20px gray;
+  opacity: 1;
+}
+.HnbANo8qAyH7VsiRHpyB .ClzT11tu8sseebQZCPYW {
+  width: 80%;
+  height: 90%;
+}
+.HnbANo8qAyH7VsiRHpyB .c5UOgtDXSsy57lsrycgs {
+  padding: 0;
+  margin: 0;
+}`, "",{"version":3,"sources":["webpack://./src/components/ClotheListItem/ClotheListItem.module.scss"],"names":[],"mappings":"AACI;EACI,OAAA;EACA,cAAA;EACA,YAAA;EACA,aAAA;EACA,aAAA;EACA,0BAAA;EACA,mCAAA;EACA,mBAAA;EACA,qBAAA;EACA,gBAAA;AAAR;AAIG;EACK,yBAAA;EACA,UAAA;AAFR;AAKI;EACI,UAAA;EACA,WAAA;AAHR;AAMI;EACI,UAAA;EACA,SAAA;AAJR","sourcesContent":[".container{\n    .card{\n        flex: 1;\n        margin: 0 10px;\n        width: 280px;\n        height: 400px;\n        display: grid;\n        grid-template-columns: 1fr;\n        grid-template-rows: 70% 10% 10% 10%;\n        align-items:center;\n        justify-items: center;\n        overflow: hidden;\n    }\n\n\n   :hover{\n        box-shadow: 0 0 20px gray;\n        opacity: 1;\n    }\n\n    .image {\n        width: 80%; \n        height: 90%;\n      }\n    \n    .h3{\n        padding: 0;\n        margin: 0;\n    }\n}\n\n    \n    \n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"card": `kXXaVWIvQjyQcLsaAkmm`
+	"container": `HnbANo8qAyH7VsiRHpyB`,
+	"card": `kXXaVWIvQjyQcLsaAkmm`,
+	"image": `ClzT11tu8sseebQZCPYW`,
+	"h3": `c5UOgtDXSsy57lsrycgs`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1740,10 +1782,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `.aD9HrbblvGeOlZGEYplq {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.25vmin;
+  grid-template-rows: auto;
+  gap: 3vmin;
   justify-items: center;
   align-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/components/ClothesList/ClothesList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,kCAAA;EACA,aAAA;EACA,qBAAA;EACA,mBAAA;AACJ","sourcesContent":[".ClothesList{\n    display:grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    gap: 1.25vmin;\n    justify-items: center;\n    align-items: center;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/ClothesList/ClothesList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,kCAAA;EACA,wBAAA;EACA,UAAA;EACA,qBAAA;EACA,mBAAA;AACJ","sourcesContent":[".ClothesList{\n    display:grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    grid-template-rows: auto;\n    gap: 3vmin;\n    justify-items: center;\n    align-items: center;\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"ClothesList": `aD9HrbblvGeOlZGEYplq`
@@ -1820,12 +1863,15 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `.ZeRW57PNaWpYVsw6JlaC {
   width: 100%;
   display: grid;
-  grid-template-columns: 8vw 12vw 5.75vw 5.25vw;
+  grid-template-columns: 12vw 13vw 5.75vw 5vw;
   padding: 1vmin 0;
-  color: var(--text-light);
+  color: var(--text-dark);
   background-color: var(--white);
   border-top: 0.1vmin solid var(--tan-3);
-  font-size: 1.5vw;
+  font-size: 1.2vw;
+}
+.ZeRW57PNaWpYVsw6JlaC div {
+  margin-right: 2vw;
 }
 
 .ZeRW57PNaWpYVsw6JlaC:last-child {
@@ -1848,7 +1894,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZeRW57PNaWpYVsw6JlaC {
 
 .ZeRW57PNaWpYVsw6JlaC button {
   margin: 0;
-}`, "",{"version":3,"sources":["webpack://./src/components/LineItem/LineItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,6CAAA;EACA,gBAAA;EACA,wBAAA;EACA,8BAAA;EACA,sCAAA;EACA,gBAAA;AACJ;;AAEI;EACA,yCAAA;AACJ;;AAEI;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,aAAA;EACA,yBAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,SAAA;AACJ","sourcesContent":[".LineItem {\n    width: 100%;\n    display: grid;\n    grid-template-columns: 8vw 12vw 5.75vw 5.25vw;\n    padding: 1vmin 0;\n    color: var(--text-light);\n    background-color: var(--white);\n    border-top: .1vmin solid var(--tan-3);\n    font-size: 1.5vw;\n    }\n    \n    .LineItem:last-child {\n    border-bottom: .1vmin solid var(--tan-3);\n    }\n    \n    .LineItem .qty {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: 1.3vw;\n    }\n    \n    .LineItem .extPrice {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 1.3vw;\n    }\n    \n    .LineItem button {\n    margin: 0;\n    }"],"sourceRoot":""}]);
+}
+
+img {
+  width: 6vw;
+  height: auto;
+}`, "",{"version":3,"sources":["webpack://./src/components/LineItem/LineItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,2CAAA;EACA,gBAAA;EACA,uBAAA;EACA,8BAAA;EACA,sCAAA;EACA,gBAAA;AACJ;AAAI;EACI,iBAAA;AAER;;AAEI;EACA,yCAAA;AACJ;;AAEI;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,aAAA;EACA,yBAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,SAAA;AACJ;;AAEI;EACI,UAAA;EACA,YAAA;AACR","sourcesContent":[".LineItem {\n    width: 100%;\n    display: grid;\n    grid-template-columns: 12vw 13vw 5.75vw 5vw;\n    padding: 1vmin 0;\n    color: var(--text-dark);\n    background-color: var(--white);\n    border-top: .1vmin solid var(--tan-3);\n    font-size: 1.2vw;\n    div {\n        margin-right: 2vw;\n    }\n    }\n    \n    .LineItem:last-child {\n    border-bottom: .1vmin solid var(--tan-3);\n    }\n    \n    .LineItem .qty {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: 1.3vw;\n    }\n    \n    .LineItem .extPrice {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 1.3vw;\n    }\n    \n    .LineItem button {\n    margin: 0;\n    }\n\n    img{\n        width: 6vw;\n        height: auto;\n    }\n\n    "],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"LineItem": `ZeRW57PNaWpYVsw6JlaC`,
@@ -1917,11 +1968,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.cPR75kdAXDGVxib0PszB {
   align-items: center;
   padding: 3vmin;
   font-size: 2vmin;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .cPR75kdAXDGVxib0PszB .ap70fWT3eETsAtLlRQKl {
   width: 100%;
+}
+
+.cPR75kdAXDGVxib0PszB .zZC_R9Tj4SdyyLFPHfKT {
+  font-size: 2.5vmin;
+  color: darkblue;
+  font-weight: 1000;
 }
 
 .cPR75kdAXDGVxib0PszB .vVkqXbRqxMYDCnUttflb {
@@ -1957,11 +2014,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.cPR75kdAXDGVxib0PszB {
   position: absolute;
   top: 50vh;
   font-size: 2vmin;
-}`, "",{"version":3,"sources":["webpack://./src/components/OrderDetail/OrderDetail.module.scss"],"names":[],"mappings":"AAAA;EACI,sBAAA;EACA,2BAAA;EACA,mBAAA;EACA,cAAA;EACA,gBAAA;EACA,wBAAA;AACJ;;AAEE;EACE,WAAA;AACJ;;AAEE;EACE,iBAAA;EACA,2BAAA;EACA,4BAAA;EACA,WAAA;AACJ;;AAEE;EACE,WAAA;EACA,aAAA;EACA,4CAAA;EACA,gBAAA;EACA,wBAAA;EACA,sCAAA;AACJ;;AAEE;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,uBAAA;AACJ;;AAEE;EACE,aAAA;EACA,yBAAA;AACJ;;AAEE;EACE,kBAAA;EACA,SAAA;EACA,gBAAA;AACJ","sourcesContent":[".OrderDetail {\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: center;\n    padding: 3vmin;\n    font-size: 2vmin;\n    color: var(--text-light);\n  }\n  \n  .OrderDetail .sectionHeading {\n    width: 100%\n  }\n  \n  .OrderDetail .lineItemContainer {\n    margin-top: 3vmin;\n    justify-content: flex-start;\n    height: calc(100vh - 18vmin);\n    width: 100%;\n  }\n  \n  .OrderDetail .total {\n    width: 100%;\n    display: grid;\n    grid-template-columns: 18.35vw 5.75vw 5.25vw;\n    padding: 1vmin 0;\n    color: var(--text-light);\n    border-top: .1vmin solid var(--tan-3);\n  }\n  \n  .OrderDetail .total span {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 1.5vw;\n    color: var(--text-dark);\n  }\n  \n  .OrderDetail .total span.right {\n    display: flex;\n    justify-content: flex-end;\n  }\n  \n  .OrderDetail .hungry {\n    position: absolute;\n    top: 50vh;\n    font-size: 2vmin;\n  }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/OrderDetail/OrderDetail.module.scss"],"names":[],"mappings":"AAAA;EACI,sBAAA;EACA,2BAAA;EACA,mBAAA;EACA,cAAA;EACA,gBAAA;EACA,uBAAA;AACJ;;AAGE;EACE,WAAA;AAAJ;;AAGE;EACE,kBAAA;EACA,eAAA;EACA,iBAAA;AAAJ;;AAEE;EACE,iBAAA;EACA,2BAAA;EACA,4BAAA;EACA,WAAA;AACJ;;AAEE;EACE,WAAA;EACA,aAAA;EACA,4CAAA;EACA,gBAAA;EACA,wBAAA;EACA,sCAAA;AACJ;;AAEE;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,uBAAA;AACJ;;AAEE;EACE,aAAA;EACA,yBAAA;AACJ;;AAEE;EACE,kBAAA;EACA,SAAA;EACA,gBAAA;AACJ","sourcesContent":[".OrderDetail {\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: center;\n    padding: 3vmin;\n    font-size: 2vmin;\n    color: var(--text-dark)\n    \n  }\n \n  .OrderDetail .sectionHeading {\n    width: 100%;\n    \n  }\n  .OrderDetail .cartTitle {\n    font-size:2.5vmin;\n    color:darkblue;\n    font-weight: 1000;\n  }\n  .OrderDetail .lineItemContainer {\n    margin-top: 3vmin;\n    justify-content: flex-start;\n    height: calc(100vh - 18vmin);\n    width: 100%;\n  }\n  \n  .OrderDetail .total {\n    width: 100%;\n    display: grid;\n    grid-template-columns: 18.35vw 5.75vw 5.25vw;\n    padding: 1vmin 0;\n    color: var(--text-light);\n    border-top: .1vmin solid var(--tan-3);\n  }\n  \n  .OrderDetail .total span {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 1.5vw;\n    color: var(--text-dark);\n  }\n  \n  .OrderDetail .total span.right {\n    display: flex;\n    justify-content: flex-end;\n  }\n  \n  .OrderDetail .hungry {\n    position: absolute;\n    top: 50vh;\n    font-size: 2vmin;\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"OrderDetail": `cPR75kdAXDGVxib0PszB`,
 	"sectionHeading": `ap70fWT3eETsAtLlRQKl`,
+	"cartTitle": `zZC_R9Tj4SdyyLFPHfKT`,
 	"lineItemContainer": `vVkqXbRqxMYDCnUttflb`,
 	"total": `V5OAbv7QFHo6WglNx0m0`,
 	"right": `GtULiQQdndLNSQN4Yc97`,
@@ -2171,10 +2229,9 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.luBJirBC3AbIwQNsEypk .M5hfXB5SdQBALDuYYJGA {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-  justify-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/pages/HomePage/HomePage.module.scss"],"names":[],"mappings":"AACI;EACI,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,qBAAA;AAAR","sourcesContent":[".HomePage{\n    .ClothPage{\n        display:grid;\n        grid-template-columns: 2fr 1fr;\n        align-items: center;\n        justify-items: center\n    }\n}"],"sourceRoot":""}]);
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 70%;
+}`, "",{"version":3,"sources":["webpack://./src/pages/HomePage/HomePage.module.scss"],"names":[],"mappings":"AACI;EACI,aAAA;EACA,8BAAA;EACA,uBAAA;AAAR","sourcesContent":[".HomePage{\n    .ClothPage{\n        display: grid;\n        grid-template-columns: 60% 40%;\n        grid-template-rows:70%    \n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"HomePage": `luBJirBC3AbIwQNsEypk`,
@@ -3283,4 +3340,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.318e3feb9bfef906e2e4e771b302a518.js.map
+//# sourceMappingURL=App.257c647379370bd477c3c5ead9941f13.js.map
