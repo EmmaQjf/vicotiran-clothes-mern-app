@@ -5,7 +5,7 @@ import {useEffect} from 'react'
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ 
     order, handleChangeQty, handleCheckout,
-    setQuantity 
+    setQuantity
 }) {
     if (!order) return null;
 
@@ -26,9 +26,9 @@ export default function OrderDetail({
       <div className={styles.OrderDetail}>
         <div className={styles.sectionHeading}>
           {order.isPaid ?
-            <span className={styles.cartTitle}>Style in your bag &nbsp;&nbsp;&nbsp;&nbsp;<span className="smaller">{order.orderId}</span></span>
+            <span className={styles.cartTitle}>Styles In Your Bag &nbsp;&nbsp;&nbsp;&nbsp;<span className="smaller">{order.orderId}</span></span>
             :
-            <span className={styles.cartTitle}>Styles in your bag</span>
+            <span className={styles.cartTitle}>Styles In Your Bag</span>
           }
           &nbsp;&nbsp;&nbsp;&nbsp;<span>{new Date(order.updatedAt).toLocaleDateString()}</span>
         </div>

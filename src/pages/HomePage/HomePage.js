@@ -135,10 +135,10 @@ export default function HomePage(
                         setQuantity ={setQuantity}
                         />
                     </div>
+
                 </div>
             }
             
-
     </div>
 )
 }

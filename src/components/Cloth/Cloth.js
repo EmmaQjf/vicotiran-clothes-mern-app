@@ -2,7 +2,8 @@ import {Link} from 'react-router-dom'
 import styles from './Cloth.module.scss'
 export default function Clothe(
     {cloth,
-    handleAddToOrder
+    handleAddToOrder,
+    setShowOrderCart
   }
 
 ){       
@@ -16,7 +17,7 @@ export default function Clothe(
           <div>${cloth.price} </div>
           <div>{cloth.size} </div>
           <div>{cloth.color} </div>
-          <button onClick={() => handleAddToOrder(cloth._id)}>
+          <button onClick={() => {handleAddToOrder(cloth._id);setShowOrderCart(true)}}>
            ADD
           </button>  
         </div> 

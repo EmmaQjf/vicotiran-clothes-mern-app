@@ -26,7 +26,7 @@ export default function OrderDetail2({
     },[order])
      
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ overflowY: 'scroll' }}>
      
        <div className={styles.OrderDetail}>
         <div >
