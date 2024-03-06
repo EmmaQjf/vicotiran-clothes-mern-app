@@ -12,9 +12,12 @@ import Cloth from '../../components/Cloth/Cloth'
 import * as itemsAPI from '../../utilities/items-api'
 import { set } from '../../../models/itemSchema';
 
+import OrderDetail2 from '../../components/OrderDetail2/OrderDetail2';
+
 export default function HomePage(
     { user, setUser }
 ){
+
     // get all categories
     const [categories, setCategories] = useState([])
     const [activeCat, setActiveCat] = useState('');
@@ -73,12 +76,14 @@ export default function HomePage(
                 setQuantity(0)
             }
         },[cart]) 
+
+        const [showOrderCart, setShowOrderCart] =useState(false)
      
     return(
 
         <div className={styles.HomePage}>
            
-           <Header setUser={setUser} quantity={quantity}/>
+           <Header setUser={setUser} quantity={quantity} setShowOrderCart={setShowOrderCart}/>
             {/* <UserLogOut
             setUser={setUser}/> */}
             <h3>Welcome! {user.name}</h3>
@@ -90,6 +95,21 @@ export default function HomePage(
             setActiveCat={setActiveCat}
             setShowClothPage={setShowClothPage}
             />
+
+            {showOrderCart?
+                <div className={styles.DarkOverlay}>
+                <OrderDetail2 
+                order={cart}
+                handleChangeQty={handleChangeQty}
+                handleCheckout={handleCheckout}
+                setQuantity ={setQuantity}
+                showOrderCart = {showOrderCart}
+                setShowOrderCart = {setShowOrderCart}
+                />
+                </div>:
+                <></>}
+
+            
             {
                 showClothPage? 
                 <ClothesList 
@@ -102,7 +122,7 @@ export default function HomePage(
                 :<div className={styles.ClothPage}>
                     <div>
                         <Cloth 
-                        cloth = {currentItem}
+                       cloth = {currentItem}
                         handleAddToOrder={handleAddToOrder}
                         />
                     </div>

@@ -14,7 +14,8 @@ import * as ordersAPI from '../../utilities/orders-api'
 
 export default function Header(
     {setUser, 
-    quantity}
+    quantity,
+    setShowOrderCart}
 ){
     
     return (
@@ -26,9 +27,9 @@ export default function Header(
           <UserLogOut setUser={setUser}/>
           <button><Link to="/orders">orders</Link></button>
           <div>
-          <Link to = {'/auth'}><UserRound size={32}/> </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <ShoppingCart  size={32}/>
+          {/* <Link to = {'/auth'}><UserRound size={32}/> </Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+          <div onClick={()=>setShowOrderCart(true)}><ShoppingCart  size={32}/></div>
           <span>{quantity}</span>
           </div>
           

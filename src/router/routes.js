@@ -1,7 +1,7 @@
 import HomePage from '../pages/HomePage/HomePage';
-import ClothePage from '../pages/ClothePage/ClothePage';
 import OrderHistoryPage from '../pages/OrderHistoryPage/OrderHistoryPage';
 import AuthPage from '../pages/AuthPage/AuthPage';
+import CartPage from '../pages/CartPage/CartPage'
 
 const routes = [
 	{
@@ -9,11 +9,11 @@ const routes = [
 		key: 'Home',
 		path: '/home'
 	},
-    // {
-	// 	Component: ClothePage,
-	// 	key: 'Clothe',
-	// 	path: '/clothe/:id'
-	// },
+    {
+		Component: CartPage,
+		key: 'Cart',
+		path: '/cart'
+	},
 	{
 		Component: OrderHistoryPage,
 		key: 'OrderHistory',
