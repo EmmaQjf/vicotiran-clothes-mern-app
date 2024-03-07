@@ -9,8 +9,8 @@ const itemSchema = new Schema(
           img: { type: String, required: true },
           categories: [{type: Schema.Types.ObjectId, ref:'Category'}],
     
-          size: { type: Array },
-          color: { type: Array },
+          size: { type: String },
+          color: { type: String },
           price: { type: Number, required: true },
           inStock: { type: Boolean, default: true },
         },

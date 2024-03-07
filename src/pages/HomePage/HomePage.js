@@ -13,6 +13,7 @@ import * as itemsAPI from '../../utilities/items-api'
 import { set } from '../../../models/itemSchema';
 
 import OrderDetail2 from '../../components/OrderDetail2/OrderDetail2';
+import InitialDisplay from '../../components/InitialDisplay/initialDisplay';
 
 export default function HomePage(
     { user, setUser }
@@ -33,7 +34,8 @@ export default function HomePage(
             const cat =item.name;
             return [...cats, cat]}
         ,[])
-        setActiveCat(categoriesRef.current[0]);
+        // setActiveCat(categoriesRef.current[0]);
+        setActiveCat(null);
     }
         getAllCategories();
     }, []);
@@ -70,14 +72,34 @@ export default function HomePage(
           //deal with the cart 
           const [quantity, setQuantity] = useState(0)
           useEffect(()=> {
-            if (cart) {
-                setQuantity(cart.totalQty)
-            } else {
-                setQuantity(0)
+            async function aboutQuantity() {
+                try {
+                    if (cart) {
+                        setQuantity(cart.totalQty)
+                    } else {
+                        setQuantity(0)
+                    }
+                }
+                 catch (error) {
+                    console.error(error);
+                }
             }
+            aboutQuantity()   
         },[cart]) 
 
         const [showOrderCart, setShowOrderCart] =useState(false)
+        const [showBanner, setBanner] = useState(true)
+        // useEffect(() => {
+        //     async function getAllClothes() {
+        //         try {
+        //             const clothes = await itemsAPI.getAll();
+        //             setAllClothes(clothes);
+        //         } catch (error) {
+        //             console.error(error);
+        //         }
+        //     }
+        //     getAllClothes();
+        // }, []);
      
     return(
 
@@ -88,6 +110,7 @@ export default function HomePage(
             setUser={setUser}/> */}
             <h3>Welcome! {user.name}</h3>
 
+
             <CategoryList
             categories={categories}
             allcategories = {categoriesRef.current}
@@ -95,6 +118,10 @@ export default function HomePage(
             setActiveCat={setActiveCat}
             setShowClothPage={setShowClothPage}
             />
+
+            {activeCat? null: <InitialDisplay  categories={categories}/> }
+        
+
 
             {showOrderCart?
                 <div className={styles.DarkOverlay}>

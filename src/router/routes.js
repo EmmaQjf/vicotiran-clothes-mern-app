@@ -14,7 +14,7 @@ const routes = [
 		key: 'OrderHistory',
 		path: '/orders'
 	},
-
+	
 	{
 		Component: AuthPage,
 		key: 'AuthPage',

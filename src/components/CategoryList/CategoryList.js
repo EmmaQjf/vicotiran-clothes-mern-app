@@ -1,11 +1,7 @@
-// export default function CategoryList(){
-//     return (
-//         <h1>This is the CategoryList</h1>
-//     )
-// }
+
 import styles from './CategoryList.module.scss';
 
-export default function CategoryList({ categories, allcategories, activeCat, setActiveCat,setShowClothPage}) {
+export default function CategoryList({ allcategories, activeCat, setActiveCat,setShowClothPage}) {
   const cats = allcategories.map(cat =>
     <li
       key={cat}

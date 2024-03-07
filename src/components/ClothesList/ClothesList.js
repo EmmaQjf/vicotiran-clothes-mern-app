@@ -19,23 +19,38 @@ export default function ClothesList(
 ){
    
     const[clothes, setClothes] = useState([])
+    // useEffect(() => {
+    //     const fetchClothes = async () => {
+    //       try {
+    //         const filteredCategories = categories.filter(category => category.name === activeCat);
+    //         if (filteredCategories.length > 0) {
+    //           const individualCategory = filteredCategories[0];
+    //           setClothes(individualCategory.items);
+    //         } else {
+    //           setClothes([]);
+    //         }
+    //       } catch (error) {
+    //         console.error(error);
+    //       }
+    //     };
+    //     fetchClothes();
+    //   }, [categories,activeCat]);
+
     useEffect(() => {
-        const fetchClothes = async () => {
-          try {
-            const filteredCategories = categories.filter(category => category.name === activeCat);
-            if (filteredCategories.length > 0) {
-              const individualCategory = filteredCategories[0];
-              setClothes(individualCategory.items);
-            } else {
-              setClothes([]);
+          const fetchClothes = async () => {
+            try {
+              const fetchIndividualCategory = await categoriesAPI.individualCategory(activeCat);
+                setClothes(fetchIndividualCategory.items);
+             } catch(error) {
+              console.error(error);
             }
-          } catch (error) {
-            console.error(error);
-          }
-        };
-        fetchClothes();
-      }, [categories,activeCat]);
-console.log(clothes)
+          };
+          fetchClothes();
+        }, [categories,activeCat]);
+
+
+
+        
     return(
         <div className={styles.ClothesList}>
         {
@@ -50,7 +65,7 @@ console.log(clothes)
                    />
                 )
         
-            : <>No clothes</>
+            : <></>
         }
         </div>
     )

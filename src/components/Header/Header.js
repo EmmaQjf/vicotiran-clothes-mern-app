@@ -1,6 +1,3 @@
-//import { Badge } from "@material-ui/core";
-//import { Search} from "@material-ui/icons";
-//import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import UserLogOut from "../UserLogOut/UserLogOut";
@@ -29,8 +26,7 @@ export default function Header(
           <div>
           {/* <Link to = {'/auth'}><UserRound size={32}/> </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
-          <div onClick={()=>setShowOrderCart(true)}><ShoppingCart  size={32}/></div>
-          <span>{quantity}</span>
+           <div className={styles.container}onClick={()=>setShowOrderCart(true)}><ShoppingCart  size={48}/> <span className={styles.cartQuantity}>{quantity}</span></div>
           </div>
           
           
