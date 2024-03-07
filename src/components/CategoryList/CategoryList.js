@@ -1,4 +1,3 @@
-
 import styles from './CategoryList.module.scss';
 
 export default function CategoryList({ allcategories, activeCat, setActiveCat,setShowClothPage}) {

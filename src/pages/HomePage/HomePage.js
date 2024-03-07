@@ -9,8 +9,6 @@ import styles from './HomePage.module.scss'
 
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import Cloth from '../../components/Cloth/Cloth'
-import * as itemsAPI from '../../utilities/items-api'
-import { set } from '../../../models/itemSchema';
 
 import OrderDetail2 from '../../components/OrderDetail2/OrderDetail2';
 import InitialDisplay from '../../components/InitialDisplay/initialDisplay';
@@ -28,14 +26,20 @@ export default function HomePage(
 
     useEffect(function() {
         async function getAllCategories(){
-          const categories = await categoriesAPI.getAll()
-          setCategories(categories)
-          categoriesRef.current = categories.reduce((cats, item) => {
-            const cat =item.name;
-            return [...cats, cat]}
-        ,[])
-        // setActiveCat(categoriesRef.current[0]);
-        setActiveCat(null);
+            try {
+                const categories = await categoriesAPI.getAll()
+                setCategories(categories)
+                //   categoriesRef.current = categories.reduce((cats, item) => {
+                //     const cat =item.name;
+                //     return [...cats, cat]}
+                // ,[])
+                categoriesRef.current = categories.map(category => category.name);
+                // setActiveCat(categoriesRef.current[0]);
+                setActiveCat(null);
+            } catch (error) {
+                console.error(error);
+            }
+          
     }
         getAllCategories();
     }, []);
@@ -88,28 +92,13 @@ export default function HomePage(
         },[cart]) 
 
         const [showOrderCart, setShowOrderCart] =useState(false)
-        const [showBanner, setBanner] = useState(true)
-        // useEffect(() => {
-        //     async function getAllClothes() {
-        //         try {
-        //             const clothes = await itemsAPI.getAll();
-        //             setAllClothes(clothes);
-        //         } catch (error) {
-        //             console.error(error);
-        //         }
-        //     }
-        //     getAllClothes();
-        // }, []);
      
     return(
 
         <div className={styles.HomePage}>
            
            <Header setUser={setUser} quantity={quantity} setShowOrderCart={setShowOrderCart}/>
-            {/* <UserLogOut
-            setUser={setUser}/> */}
             <h3>Welcome! {user.name}</h3>
-
 
             <CategoryList
             categories={categories}
@@ -119,9 +108,8 @@ export default function HomePage(
             setShowClothPage={setShowClothPage}
             />
 
-            {activeCat? null: <InitialDisplay  categories={categories}/> }
+            {activeCat? null: <InitialDisplay/> }
         
-
 
             {showOrderCart?
                 <div className={styles.DarkOverlay}>

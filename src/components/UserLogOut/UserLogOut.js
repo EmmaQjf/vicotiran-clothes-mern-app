@@ -1,9 +1,6 @@
 import {logOut} from '../../utilities/users-service'
 export default function UserLogOut(
-    {
-        user, 
-        setUser
-    }
+    {user, setUser}
     ){
     function handleLogOut() {
         logOut();

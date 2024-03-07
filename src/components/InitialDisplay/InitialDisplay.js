@@ -2,11 +2,7 @@ import {useState, useEffect} from "react"
 import styles from './initialDisplay.module.scss'
 import * as itemsAPI from "../../utilities/items-api"
 
-export default function IntialDisplay(
-    {
-        categories
-    }
-){
+export default function IntialDisplay(){
 
     const [allClothes, setAllClothes]= useState(null)
     useEffect(() => {
@@ -21,19 +17,17 @@ export default function IntialDisplay(
         getAllClothes();
     }, []);
 
-
    return(
    
        <div className={styles.IntialDisplay}>
-
-           
+         
             <div>
             <img className={styles.banner} src ="https://i.imgur.com/hSaBdwK.png"/>
             </div>
 
             {
                 allClothes && 
-                < div className={styles.clothes}>
+                <div className={styles.clothes}>
                     <div >
                     <img src={allClothes[6].img } />
                     </div>
@@ -46,12 +40,8 @@ export default function IntialDisplay(
                     <div >
                     <img src={allClothes[11].img }/>
                     </div>
-
-                
                 </div>
             }    
-
       </div>
- 
     );
 }

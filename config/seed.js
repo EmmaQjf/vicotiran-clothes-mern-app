@@ -38,16 +38,22 @@ const Item = require('../models/item');
   
         {title: 'Satin Jacquard Skirt', desc: 'handmade',img:"https://i.imgur.com/TJ6BqyK.jpg", categories:[categories[2],categories[4]],size:'XS',color:'red', price: 50},
   
-        
-  
         {title: 'women burgendy hat', desc: 'handmade',img:"https://i.imgur.com/n8AQtzq.png", categories:[categories[3],categories[4]],size:'XS',color:'burgendy', price: 30},
+
         {title: 'women rose pattern', desc: 'handmade',img:"https://i.imgur.com/2fDAwVO.png", categories:[categories[3],categories[4]], size:'XS',color:'red',price: 30},
+
         {title: 'women white sun hat', desc: 'handmade',img:"https://i.imgur.com/mnF0Wb2.png", categories:[categories[3],categories[4]], size:'XS',color:'white',price: 30},
+
         {title: 'women grey hat', desc: 'handmade',img:"https://i.imgur.com/ShdSpBO.png", categories:[categories[3],categories[4]], size:'XS',color:'grey',price: 30},
+
         {title: 'women green hat', desc: 'handmade',img:"https://i.imgur.com/2IZW24h.png", categories:[categories[3],categories[4]], size:'XS',color:'green',price: 30},
+
         {title: 'men green tall hat', desc: 'handmade',img:"https://i.imgur.com/EymrTRm.png", categories:[categories[3],categories[5]],size:'XS',color:'green', price: 30},
+
         {title: 'men black tallhat 2', desc: 'handmade',img:"https://i.imgur.com/oXcNPuE.png", categories:[categories[3],categories[5]],size:'XS',color:'black', price: 30},
+
         {title: 'cream men shirt', desc: 'handmade',img:"https://i.imgur.com/jU0Q00x.png", categories:[categories[1],categories[5]],size:'XS',color:'cream', price: 30},
+        
         {title: 'green men shirt', desc: 'handmade',img:"https://i.imgur.com/TNgvHgQ.png", categories:[categories[1],categories[5]],size:'XS',color:'green', price: 30},
       ]);
   

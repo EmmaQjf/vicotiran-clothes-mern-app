@@ -1,11 +1,10 @@
-import {Link} from 'react-router-dom'
 import styles from './ClotheListItem.module.scss'
 export default function ClotheListItem(
-    {cloth,
+    {   cloth,
         setCurrentItem,
         showClothPage,
-        setShowClothPage}
-
+        setShowClothPage
+    }
 ){   
 
     return(

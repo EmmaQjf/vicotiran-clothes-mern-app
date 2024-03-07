@@ -1,10 +1,3 @@
-// export default function ClothesList(){
-//     return (
-//         <h1>This is the ClothesList</h1>
-//     )
-// }
-
-
 import * as categoriesAPI from '../../utilities/categories-api';
 import {useState,useEffect} from 'react'
 import ClotheListItem from '../ClotheListItem/ClotheListItem'
@@ -40,15 +33,17 @@ export default function ClothesList(
           const fetchClothes = async () => {
             try {
               const fetchIndividualCategory = await categoriesAPI.individualCategory(activeCat);
+               if(fetchIndividualCategory){
                 setClothes(fetchIndividualCategory.items);
+               } else {
+                setClothes([]);
+               }  
              } catch(error) {
               console.error(error);
             }
           };
           fetchClothes();
         }, [categories,activeCat]);
-
-
 
         
     return(
@@ -62,9 +57,7 @@ export default function ClothesList(
                     setCurrentItem={setCurrentItem}
                     showClothPage={showClothPage}
                     setShowClothPage={setShowClothPage}
-                   />
-                )
-        
+                   />)
             : <></>
         }
         </div>

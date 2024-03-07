@@ -1,10 +1,4 @@
 import styles from './LineItem.module.scss'
-// export default function LineItem(){
-//     return (
-//         <h1>This is the LineItem</h1>
-//     )
-// }
-
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
     return (
       <div className={styles.LineItem}>
@@ -31,4 +25,4 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
         <div className={styles.extPrice}>${lineItem.extPrice.toFixed(2)}</div>
       </div>
     );
-        }
+}
