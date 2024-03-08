@@ -5,24 +5,27 @@ import * as ordersAPI from '../../utilities/orders-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import ClothesList from '../../components/ClothesList/ClothesList'
 import Header from '../../components/Header/Header'
-import styles from './HomePage.module.scss'
-
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import Cloth from '../../components/Cloth/Cloth'
-
 import OrderDetail2 from '../../components/OrderDetail2/OrderDetail2';
 import InitialDisplay from '../../components/InitialDisplay/initialDisplay';
+import styles from './HomePage.module.scss'
 
 export default function HomePage(
     { user, setUser }
 ){
 
-    // get all categories
+    // deal with the categories and decide which clothList to show
     const [categories, setCategories] = useState([])
     const [activeCat, setActiveCat] = useState('');
     const [cart, setCart] = useState(null);
     const categoriesRef = useRef([]);
-  
+
+    // toggle to see which page/components to show
+    const [showOrderCart, setShowOrderCart] =useState(false)
+    const[showClothPage, setShowClothPage] = useState(true)
+
+    const navigate = useNavigate();
 
     useEffect(function() {
         async function getAllCategories(){
@@ -52,26 +55,10 @@ export default function HomePage(
       getCart();
     }, [])
        
+
+     //figure out on the clothlist page, which button to click and what detailed info page of cloth to show
         const[currentItem, setCurrentItem] = useState({})
-        const[showClothPage, setShowClothPage] = useState(true)
-
-        const navigate = useNavigate();
-
-        async function handleAddToOrder(itemId) {
-            const updatedCart = await ordersAPI.addItemToCart(itemId);
-            setCart(updatedCart);
-          }
-        
-          async function handleChangeQty(itemId, newQty) {
-            const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
-            setCart(updatedCart);
-          }
-        
-          async function handleCheckout() {
-            await ordersAPI.checkout();
-            navigate('/orders');
-          }
-
+       
 
           //deal with the cart 
           const [quantity, setQuantity] = useState(0)
@@ -91,8 +78,24 @@ export default function HomePage(
             aboutQuantity()   
         },[cart]) 
 
-        const [showOrderCart, setShowOrderCart] =useState(false)
+
+        // functions to deal with the cart/order
+        async function handleAddToOrder(itemId) {
+            const updatedCart = await ordersAPI.addItemToCart(itemId);
+            setCart(updatedCart);
+          }
+        
+          async function handleChangeQty(itemId, newQty) {
+            const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+            setCart(updatedCart);
+          }
+        
+          async function handleCheckout() {
+            await ordersAPI.checkout();
+            navigate('/orders');
+          }
      
+          
     return(
 
         <div className={styles.HomePage}>

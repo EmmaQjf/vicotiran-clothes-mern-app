@@ -26,8 +26,9 @@ These instructions will get you a copy of the project up and running on your loc
 4. cd into the clone directionary.
 5. Open the code in VS `code .`  
 6. Install all the packages: express, mongoose, dotenv, nodemon, bcrypt, jsonwebtoken, mongodb-memory-server,morgan, jest, supertest:  `npm i`
-7. Config the seed file:  `node config/seed`
-8. Create a file .env and put in your MONGO_URI and SECRET
+7. Create a file .env and put in your MONGO_URI and SECRET
+8. Config the seed file:  `node config/seed`
+   
    
 ## Steps
 
