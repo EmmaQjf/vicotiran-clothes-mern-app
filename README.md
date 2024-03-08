@@ -1,6 +1,5 @@
 # Chinese Learning API
-
-This is an API run on the localhost:3000 that provides users with the ability to create word lists, choose words to add to the wordsets and add labels to the wordsets. Users can also edit, update, delete wordsets,labels and wors if needed. 
+Welcome to the Victorian Vintage Shop MERN App! This full-stack web application is designed to provide users with a delightful shopping experience for Victorian-style clothing and accessories. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), this application offers a seamless interface for browsing and purchasing vintage clothing items inspired by the Victorian era.
 
 ## Table of content  
 - [**Getting Started**](#getting-started)
