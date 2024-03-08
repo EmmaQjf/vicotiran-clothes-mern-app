@@ -89,22 +89,22 @@ yarn start
 ### Category routes table
 | method | url | purpose & token |
 | :---         |     :---:      |          ---: |
-| get | /api/categories | show all the categories & no token needed |
-| get | /api/categories/:name | show a catetory info & no token needed |
+| get | /api/categories | show all the categories & token needed |
+| get | /api/categories/:name | show a catetory info & token needed |
 
 ### Item routes table
 | method | url | purpose & token |
 | :---         |     :---:      |          ---: |
 | get | /api/items | show all items, token needed |
-| get | /api/items/:id | show an item info, no token|
+| get | /api/items/:id | show an item info, token needed|
 |
 
 ### Order routes table
 | method | url | purpose & token |
 | :---         |     :---:      |          ---: |
-| get | /api/orders/cart | show the cart, no token |
+| get | /api/orders/cart | show the cart, token needed |
 | get | /api/orders/cart/history | show all the paid orders, token needed |
-| post | /api/orders/cart/items/:id | Add an item to the cart, no token|
+| post | /api/orders/cart/items/:id | Add an item to the cart, token needed|
 | post | /api/orders/cart/checkout| Update the cart's isPaid property to true, token needed |
 | put | /api/orders/cart/qty' | Updates an item's qty in the cart, token needed|
 ### [:arrow_up: Back to Top](#table-of-content)
