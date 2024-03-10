@@ -6,4 +6,17 @@
       justify-content: center;
       align-items:center
     }
+    height: 100vh;
+    background-image: url("https://i.imgur.com/TIG3Mby.jpg");
+    background-size: cover;
+
+    .toggle{
+      background-color:var(--tan-3) ;
+      text-decoration: dotted;
+      cursor: pointer;
+      display:inline-block;
+      color:var(--tan-4);
+      border-radius: 10%;
+    }
+    font-size: 2vmax;
 }

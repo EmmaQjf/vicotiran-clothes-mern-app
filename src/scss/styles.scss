@@ -4,6 +4,7 @@
   --tan-2: #A8DADC;
   --tan-3: #457B9D;
   --tan-4: #D3C1AE;
+  --tan-5:  darkgreen; 
   --mint: #A8DADC;
   --text-light: #968c84;
   --text-dark: black;
@@ -113,9 +114,10 @@ form {
 }
 
 label {
-  font-size: 2vmin;
+  font-size: 2vmax;
   display: flex;
   align-items: center;
+  color:var(--tan-5)
 }
 
 input {
@@ -123,7 +125,7 @@ input {
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
-  color: var(--text-dark);
+  color: var(--tan-3);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
@@ -177,7 +179,6 @@ button[type="submit"] {
 a:link, a:visited {
   color: black;
   text-decoration: none;
-  
 }
 
 a:hover, a:active {

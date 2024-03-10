@@ -1,4 +1,5 @@
 import {logOut} from '../../utilities/users-service'
+import { LogOut } from 'lucide-react';
 export default function UserLogOut(
     {user, setUser}
     ){
@@ -9,7 +10,7 @@ export default function UserLogOut(
         
     return(
         <>
-        <button onClick = {handleLogOut}> log out </button>
+        <div onClick = {handleLogOut}><LogOut size={48}/></div> 
         </>
     )
 }

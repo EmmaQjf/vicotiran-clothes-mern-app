@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import UserLogOut from "../UserLogOut/UserLogOut";
 import Logo from '../Logo/Logo'
-import { ShoppingCart, UserRound } from 'lucide-react';
+import { ShoppingCart, ListOrdered } from 'lucide-react';
+import SearchBar from '../../components/SearchBar/SearchBar'
+
 
 
 export default function Header(
     {setUser, 
     quantity,
-    setShowOrderCart}
+    setShowOrderCart,
+    input,
+    setInput
+}
 ){
     
     return (
@@ -18,8 +23,9 @@ export default function Header(
             <Link to ='/home'><Logo /></Link>
             <Link to ='/home' className={styles.link}><h1>Victorian Vintage Clothes</h1></Link>
            </div>
+           <SearchBar input={input} setInput={setInput}/>
            <UserLogOut setUser={setUser}/>
-           <button><Link to="/orders">orders</Link></button>
+           <div><Link to="/orders"><ListOrdered size={48}/></Link></div>
            <div>
           {/* <Link to = {'/auth'}><UserRound size={32}/> </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}

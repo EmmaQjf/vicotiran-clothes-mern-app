@@ -193,12 +193,15 @@ function ClothesList(_ref) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Header)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _Header_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.module.scss */ "./src/components/Header/Header.module.scss");
 /* harmony import */ var _UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UserLogOut/UserLogOut */ "./src/components/UserLogOut/UserLogOut.js");
 /* harmony import */ var _Logo_Logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Logo/Logo */ "./src/components/Logo/Logo.js");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/shopping-cart.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/list-ordered.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/shopping-cart.js");
+/* harmony import */ var _components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/SearchBar/SearchBar */ "./src/components/SearchBar/SearchBar.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
 
 
 
@@ -208,25 +211,32 @@ function Header(_ref) {
   let {
     setUser,
     quantity,
-    setShowOrderCart
+    setShowOrderCart,
+    input,
+    setInput
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
     className: _Header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].Header
   }, /*#__PURE__*/React.createElement("div", {
     className: _Header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].flex
-  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
     to: "/home"
-  }, /*#__PURE__*/React.createElement(_Logo_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+  }, /*#__PURE__*/React.createElement(_Logo_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
     to: "/home",
     className: _Header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].link
-  }, /*#__PURE__*/React.createElement("h1", null, "Victorian Vintage Clothes"))), /*#__PURE__*/React.createElement(_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, /*#__PURE__*/React.createElement("h1", null, "Victorian Vintage Clothes"))), /*#__PURE__*/React.createElement(_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    input: input,
+    setInput: setInput
+  }), /*#__PURE__*/React.createElement(_UserLogOut_UserLogOut__WEBPACK_IMPORTED_MODULE_1__["default"], {
     setUser: setUser
-  }), /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
     to: "/orders"
-  }, "orders")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    size: 48
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: _Header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].container,
     onClick: () => setShowOrderCart(true)
-  }, /*#__PURE__*/React.createElement(lucide_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/React.createElement(lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
     size: 48
   }), " ", /*#__PURE__*/React.createElement("span", {
     className: _Header_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].cartQuantity
@@ -642,6 +652,87 @@ function OrderListItem(_ref) {
 
 /***/ }),
 
+/***/ "./src/components/SearchBar/SearchBar.js":
+/*!***********************************************!*\
+  !*** ./src/components/SearchBar/SearchBar.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* unused harmony export SearchBar */
+/* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+//import OrderDetail from '../../components/OrderDetail/OrderDetail'
+
+const SearchBar = _ref => {
+  let {
+    input,
+    setInput
+  } = _ref;
+  const handleChange = value => {
+    setInput(value);
+  };
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", {
+    placeholder: "Type here to search",
+    value: input,
+    onChange: e => handleChange(e.target.value)
+  }));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchBar);
+
+/***/ }),
+
+/***/ "./src/components/SearchedItem/SearchedItem.js":
+/*!*****************************************************!*\
+  !*** ./src/components/SearchedItem/SearchedItem.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* unused harmony export default */
+/* harmony import */ var _ClothesList_ClothesList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ClothesList/ClothesList */ "./src/components/ClothesList/ClothesList.js");
+/* harmony import */ var _utilities_items_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/items-api */ "./src/utilities/items-api.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+
+function SearchedItem(_ref) {
+  let {
+    input
+  } = _ref;
+  const [allClothes, setAllClothes] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    async function getAllClothes() {
+      try {
+        const clothes = await _utilities_items_api__WEBPACK_IMPORTED_MODULE_2__.getAll();
+        setAllClothes(clothes);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getAllClothes();
+  }, []);
+  const [searchedItems, setSearchedItems] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (allClothes) {
+      const foundClothes = allClothes.filter(cloth => cloth.title.toLowerCase().includes(input.toLowerCase().trim()));
+      setSearchedItems(foundClothes);
+    }
+  }, [input]);
+
+  // const searchedClothes = () => {
+  //     return allClothes.filter(cloth => cloth.title.toLowerCase().includes(input.toLowerCase().trim()))}
+  //    console.log(searchedClothes())
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, searchedItems.length ? /*#__PURE__*/React.createElement(_ClothesList_ClothesList__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    clothes: searchedItems
+  }) : 'NO match items');
+}
+
+/***/ }),
+
 /***/ "./src/components/SignUpForm/SignUpForm.js":
 /*!*************************************************!*\
   !*** ./src/components/SignUpForm/SignUpForm.js ***!
@@ -753,7 +844,9 @@ class SignUpForm extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 /* harmony export */   "default": () => (/* binding */ UserLogOut)
 /* harmony export */ });
 /* harmony import */ var _utilities_users_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/users-service */ "./src/utilities/users-service.js");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/log-out.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
 
 function UserLogOut(_ref) {
   let {
@@ -764,9 +857,11 @@ function UserLogOut(_ref) {
     (0,_utilities_users_service__WEBPACK_IMPORTED_MODULE_0__.logOut)();
     setUser(null);
   }
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     onClick: handleLogOut
-  }, " log out "));
+  }, /*#__PURE__*/React.createElement(lucide_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    size: 48
+  })));
 }
 
 /***/ }),
@@ -821,6 +916,7 @@ function AuthPage(_ref) {
   }, /*#__PURE__*/React.createElement("div", {
     className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].center
   }, /*#__PURE__*/React.createElement(_components_Logo_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/React.createElement("div", null, "Victorian Vintage Clothes")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+    className: _AuthPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].toggle,
     onClick: () => setShowLogin(!showLogin)
   }, showLogin ? 'SIGN UP' : 'LOG IN')), showLogin ? /*#__PURE__*/React.createElement(_components_LoginForm_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setUser: setUser
@@ -844,9 +940,9 @@ function AuthPage(_ref) {
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _utilities_categories_api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utilities/categories-api */ "./src/utilities/categories-api.js");
-/* harmony import */ var _utilities_orders_api__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utilities/orders-api */ "./src/utilities/orders-api.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _utilities_categories_api__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utilities/categories-api */ "./src/utilities/categories-api.js");
+/* harmony import */ var _utilities_orders_api__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../utilities/orders-api */ "./src/utilities/orders-api.js");
 /* harmony import */ var _components_CategoryList_CategoryList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/CategoryList/CategoryList */ "./src/components/CategoryList/CategoryList.js");
 /* harmony import */ var _components_ClothesList_ClothesList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/ClothesList/ClothesList */ "./src/components/ClothesList/ClothesList.js");
 /* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Header/Header */ "./src/components/Header/Header.js");
@@ -855,7 +951,11 @@ function AuthPage(_ref) {
 /* harmony import */ var _components_OrderDetail2_OrderDetail2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/OrderDetail2/OrderDetail2 */ "./src/components/OrderDetail2/OrderDetail2.js");
 /* harmony import */ var _components_InitialDisplay_initialDisplay__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/InitialDisplay/initialDisplay */ "./src/components/InitialDisplay/initialDisplay.js");
 /* harmony import */ var _HomePage_module_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./HomePage.module.scss */ "./src/pages/HomePage/HomePage.module.scss");
+/* harmony import */ var _components_SearchedItem_SearchedItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/SearchedItem/SearchedItem */ "./src/components/SearchedItem/SearchedItem.js");
+/* harmony import */ var _components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/SearchBar/SearchBar */ "./src/components/SearchBar/SearchBar.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
 
 
 
@@ -882,11 +982,11 @@ function HomePage(_ref) {
   // toggle to see which page/components to show
   const [showOrderCart, setShowOrderCart] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [showClothPage, setShowClothPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
-  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useNavigate)();
+  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     async function getAllCategories() {
       try {
-        const categories = await _utilities_categories_api__WEBPACK_IMPORTED_MODULE_10__.getAll();
+        const categories = await _utilities_categories_api__WEBPACK_IMPORTED_MODULE_12__.getAll();
         setCategories(categories);
         //   categoriesRef.current = categories.reduce((cats, item) => {
         //     const cat =item.name;
@@ -903,7 +1003,7 @@ function HomePage(_ref) {
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     async function getCart() {
-      const cart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_11__.getCart();
+      const cart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_13__.getCart();
       setCart(cart);
     }
     getCart();
@@ -931,22 +1031,28 @@ function HomePage(_ref) {
 
   // functions to deal with the cart/order
   async function handleAddToOrder(itemId) {
-    const updatedCart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_11__.addItemToCart(itemId);
+    const updatedCart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_13__.addItemToCart(itemId);
     setCart(updatedCart);
   }
   async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_11__.setItemQtyInCart(itemId, newQty);
+    const updatedCart = await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_13__.setItemQtyInCart(itemId, newQty);
     setCart(updatedCart);
   }
   async function handleCheckout() {
-    await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_11__.checkout();
+    await _utilities_orders_api__WEBPACK_IMPORTED_MODULE_13__.checkout();
     navigate('/orders');
   }
+
+  //search bar 
+  const [input, setInput] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  console.log(input);
   return /*#__PURE__*/React.createElement("div", {
     className: _HomePage_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].HomePage
   }, /*#__PURE__*/React.createElement(_components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     setUser: setUser,
     quantity: quantity,
+    input: input,
+    setInput: setInput,
     setShowOrderCart: setShowOrderCart
   }), /*#__PURE__*/React.createElement("h3", null, "Welcome! ", user.name), /*#__PURE__*/React.createElement(_components_CategoryList_CategoryList__WEBPACK_IMPORTED_MODULE_1__["default"], {
     categories: categories,
@@ -1387,6 +1493,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
   --tan-2: #A8DADC;
   --tan-3: #457B9D;
   --tan-4: #D3C1AE;
+  --tan-5: darkgreen;
   --mint: #A8DADC;
   --text-light: #968c84;
   --text-dark: black;
@@ -1471,9 +1578,10 @@ form {
 }
 
 label {
-  font-size: 2vmin;
+  font-size: 2vmax;
   display: flex;
   align-items: center;
+  color: var(--tan-5);
 }
 
 input {
@@ -1481,7 +1589,7 @@ input {
   font-size: 2vmin;
   border: 0.1vmin solid var(--tan-3);
   border-radius: 0.5vmin;
-  color: var(--text-dark);
+  color: var(--tan-3);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
@@ -1572,7 +1680,7 @@ ul {
   color: var(--text-dark);
   background-color: var(--tan-1);
   border: 0.1vmin solid var(--tan-3);
-}`, "",{"version":3,"sources":["webpack://./src/scss/styles.scss","webpack://./src/components/CategoryList/CategoryList.module.scss"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EACA,eAAA;EACA,qBAAA;EACA,kBAAA;ACCF;;ADEA;EACE,sBAAA;ACCF;;ADeA;EACE,SAAA;EACA,8JAAA;EAGA,mCAAA;EACA,kCAAA;EACA,8BAAA;EAEA,aAAA;ACfF;;ADkBA;EACE,+EAAA;ACfF;;ADmBA;EACE,YAAA;AChBF;;ADmBA;EACE,kBAAA;AChBF;;ADmBA;EACE,iBAAA;AChBF;;ADmBA;EACE,kBAAA;AChBF;;ADoBA;EACE,sBAAA;ACjBF;;ADoBA;EACE,yBAAA;ACjBF;;ADoBA;EACE,kBAAA;ACjBF;;ADoBA;EACE,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,8BAAA;EACA,uBAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;EACA,kBAAA;EACA,gBAAA;ACjBF;;ADoBA;EACE,cAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;ACjBF;;ADoBA;EACE,oBAAA;EACA,kBAAA;ACjBF;;AD2BA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,wBAAA;ACxBF;;AD2BA;EACE,gBAAA;EACA,aAAA;EACA,mBAAA;ACxBF;;AD2BA;EACE,cAAA;EACA,gBAAA;EACA,kCAAA;EACA,sBAAA;EACA,uBAAA;EACA,iCAAA,EAAA,qBAAA;EACA,aAAA;ACxBF;;AD2BA;EACE,yBAAA;ACxBF;;AD2BA;EACE,aAAA;EACA,cAAA;EACA,uBAAA;EACA,6BAAA;EACA,gBAAA;EACA,iBAAA;EACA,qBAAA;EACA,kBAAA;EACA,wCAAA;EACA,sBAAA;EACA,aAAA;EACA,gBAAA;EACA,eAAA;ACxBF;;AD2BC;EACC,mBAAA;EAEA,yBAAA;ACzBF;;AD4BA;EACE,kBAAA;EACA,wBAAA;ACzBF;;AD4BA;EACE,gBAAA;EACA,wBAAA;ACzBF;;AD4BA;EACE,mBAAA;EACA,8BAAA;ACzBF;;AD4BA;EACE,mBAAA;EACA,iBAAA;ACzBF;;AD4BA;EACE,YAAA;EACA,qBAAA;ACzBF;;AD6BA;EACE,YAAA;AC1BF;;AA3JA;EACI,wBAAA;EACA,gBAAA;EACA,UAAA;EACA,gBAAA;AA8JJ;;AA3JI;EDOF,aAAA;EACA,uBAAA;EACA,mBAAA;ACwJF;;AA7JI;EACA,gBAAA;EACA,eAAA;EACA,kBAAA;EACA,kBAAA;EACA,sBAAA;EACA,sBAAA;AAgKJ;;AA7JI;EACA,eAAA;EACA,8BAAA;EACA,mBAAA;AAgKJ;;AA7JI;EACA,uBAAA;EACA,8BAAA;EACA,kCAAA;AAgKJ","sourcesContent":[":root {\n  --white: ghostwhite;\n  --tan-1: #F1FAEE;\n  --tan-2: #A8DADC;\n  --tan-3: #457B9D;\n  --tan-4: #D3C1AE;\n  --mint: #A8DADC;\n  --text-light: #968c84;\n  --text-dark: black;\n}\n\n*, *:before, *:after {\n  box-sizing: border-box;\n}\n\n@mixin flex-ctr-ctr {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n\n@mixin buttonStyle {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  color: purple;\n}\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n  sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  background-color: var(--white);\n  // padding: 2vmin;\n  height: 100vh;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n\n#root {\n  height: 100%;\n}\n\n.align-ctr {\n  text-align: center;\n}\n\n.align-rt {\n  text-align: right;\n}\n\n.smaller {\n  font-size: smaller;\n}\n\n\n.flex-col {\n  flex-direction: column;\n}\n\n.flex-j-end {\n  justify-content: flex-end;\n}\n\n.scroll-y {\n  overflow-y: scroll;\n}\n\n.section-heading {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  background-color: var(--tan-1);\n  color: var(--text-dark);\n  border: .1vmin solid var(--tan-3);\n  border-radius: 1vmin;\n  padding: .6vmin;\n  text-align: center;\n  font-size: 2vmin;\n}\n\n.form-container {\n  padding: 3vmin;\n  background-color: var(--tan-1);\n  border: .1vmin solid var(--tan-3);\n  border-radius: 1vmin;\n}\n\np.error-message {\n  color: var(--orange);\n  text-align: center;\n}\n\n// form {\n//   display: grid;\n//   grid-template-columns: 1fr 3fr;\n//   gap: 1.25vmin;\n//   color: var(--text-light);\n// }\n\nform {\n  display:flex;\n  flex-direction:column;\n  justify-content: center;\n  align-items: center;\n  color: var(--text-light);\n}\n\nlabel {\n  font-size: 2vmin;\n  display: flex;\n  align-items: center;\n}\n\ninput {\n  padding: 1vmin;\n  font-size: 2vmin;\n  border: .1vmin solid var(--tan-3);\n  border-radius: .5vmin;\n  color: var(--text-dark);\n  background-image: none !important; /* prevent lastpass */\n  outline: none;\n}\n\ninput:focus {\n  border-color: var(--mint);\n}\n\nbutton, a.button {\n  margin: 1vmin;\n  padding: 1vmin;\n  color: var(--text-dark);\n  background-color: var(--mint);\n  font-size: 2vmin;\n  font-weight: bold;\n  text-decoration: none;\n  text-align: center;\n  box-shadow: 0px 0px 2px 2px var(--tan-3);\n  border-radius: .5vmin;\n  outline: none;\n  transition: 0.5s;\n  cursor: pointer;\n}\n\n button:hover{\n  color: var(--tan-3);\n  // box-shadow: 0px 0px 5px 5px var(--tan-3);\n  box-shadow: 0 0 20px gray;\n}\n\nbutton.btn-sm {\n  font-size: 1.5vmin;\n  padding: .6vmin .8vmin;\n}\n\nbutton.btn-xs {\n  font-size: 1vmin;\n  padding: .4vmin .5vmin;\n}\n\nbutton:disabled, form:invalid button[type=\"submit\"] {\n  cursor: not-allowed;\n  background-color: var(--tan-3);\n}\n\nbutton[type=\"submit\"] {\n  grid-column: span 2;\n  margin: 1vmin 0 0;\n}\n\na:link, a:visited {\n  color: black;\n  text-decoration: none;\n  \n}\n\na:hover, a:active {\n  color:black\n}","@import \"../../scss/styles.scss\";\n\n.CategoryList {\n    color: var(--text-light);\n    list-style: none;\n    padding: 0;\n    font-size: 1.8vw;\n    }\n    \n    ul{\n        @include flex-ctr-ctr;\n    }\n      \n    .CategoryList li {\n    padding: .6vmin;\n    margin: 0 2vmin;\n    font-size: 2.8vmin;\n    text-align: center;\n    border-radius: .5vmin;\n    margin-bottom: .5vmin;\n    }\n    \n    .CategoryList li:hover:not(.active) {\n    cursor: pointer;\n    background-color: var(--tan-3);\n    color: var(--white);\n    }\n    \n    .CategoryList li.active {\n    color: var(--text-dark);\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/scss/styles.scss","webpack://./src/components/CategoryList/CategoryList.module.scss"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EACA,gBAAA;EACA,kBAAA;EACA,eAAA;EACA,qBAAA;EACA,kBAAA;ACCF;;ADEA;EACE,sBAAA;ACCF;;ADeA;EACE,SAAA;EACA,8JAAA;EAGA,mCAAA;EACA,kCAAA;EACA,8BAAA;EAEA,aAAA;ACfF;;ADkBA;EACE,+EAAA;ACfF;;ADmBA;EACE,YAAA;AChBF;;ADmBA;EACE,kBAAA;AChBF;;ADmBA;EACE,iBAAA;AChBF;;ADmBA;EACE,kBAAA;AChBF;;ADoBA;EACE,sBAAA;ACjBF;;ADoBA;EACE,yBAAA;ACjBF;;ADoBA;EACE,kBAAA;ACjBF;;ADoBA;EACE,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,8BAAA;EACA,uBAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;EACA,kBAAA;EACA,gBAAA;ACjBF;;ADoBA;EACE,cAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;ACjBF;;ADoBA;EACE,oBAAA;EACA,kBAAA;ACjBF;;AD2BA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,wBAAA;ACxBF;;AD2BA;EACE,gBAAA;EACA,aAAA;EACA,mBAAA;EACA,mBAAA;ACxBF;;AD2BA;EACE,cAAA;EACA,gBAAA;EACA,kCAAA;EACA,sBAAA;EACA,mBAAA;EACA,iCAAA,EAAA,qBAAA;EACA,aAAA;ACxBF;;AD2BA;EACE,yBAAA;ACxBF;;AD2BA;EACE,aAAA;EACA,cAAA;EACA,uBAAA;EACA,6BAAA;EACA,gBAAA;EACA,iBAAA;EACA,qBAAA;EACA,kBAAA;EACA,wCAAA;EACA,sBAAA;EACA,aAAA;EACA,gBAAA;EACA,eAAA;ACxBF;;AD2BC;EACC,mBAAA;EAEA,yBAAA;ACzBF;;AD4BA;EACE,kBAAA;EACA,wBAAA;ACzBF;;AD4BA;EACE,gBAAA;EACA,wBAAA;ACzBF;;AD4BA;EACE,mBAAA;EACA,8BAAA;ACzBF;;AD4BA;EACE,mBAAA;EACA,iBAAA;ACzBF;;AD4BA;EACE,YAAA;EACA,qBAAA;ACzBF;;AD4BA;EACE,YAAA;ACzBF;;AA7JA;EACI,wBAAA;EACA,gBAAA;EACA,UAAA;EACA,gBAAA;AAgKJ;;AA7JI;EDQF,aAAA;EACA,uBAAA;EACA,mBAAA;ACyJF;;AA/JI;EACA,gBAAA;EACA,eAAA;EACA,kBAAA;EACA,kBAAA;EACA,sBAAA;EACA,sBAAA;AAkKJ;;AA/JI;EACA,eAAA;EACA,8BAAA;EACA,mBAAA;AAkKJ;;AA/JI;EACA,uBAAA;EACA,8BAAA;EACA,kCAAA;AAkKJ","sourcesContent":[":root {\n  --white: ghostwhite;\n  --tan-1: #F1FAEE;\n  --tan-2: #A8DADC;\n  --tan-3: #457B9D;\n  --tan-4: #D3C1AE;\n  --tan-5:  darkgreen; \n  --mint: #A8DADC;\n  --text-light: #968c84;\n  --text-dark: black;\n}\n\n*, *:before, *:after {\n  box-sizing: border-box;\n}\n\n@mixin flex-ctr-ctr {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n\n@mixin buttonStyle {\n  margin-top: 1rem;\n  font-size: 1.5rem;\n  color: purple;\n}\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n  sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  background-color: var(--white);\n  // padding: 2vmin;\n  height: 100vh;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n\n#root {\n  height: 100%;\n}\n\n.align-ctr {\n  text-align: center;\n}\n\n.align-rt {\n  text-align: right;\n}\n\n.smaller {\n  font-size: smaller;\n}\n\n\n.flex-col {\n  flex-direction: column;\n}\n\n.flex-j-end {\n  justify-content: flex-end;\n}\n\n.scroll-y {\n  overflow-y: scroll;\n}\n\n.section-heading {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  background-color: var(--tan-1);\n  color: var(--text-dark);\n  border: .1vmin solid var(--tan-3);\n  border-radius: 1vmin;\n  padding: .6vmin;\n  text-align: center;\n  font-size: 2vmin;\n}\n\n.form-container {\n  padding: 3vmin;\n  background-color: var(--tan-1);\n  border: .1vmin solid var(--tan-3);\n  border-radius: 1vmin;\n}\n\np.error-message {\n  color: var(--orange);\n  text-align: center;\n}\n\n// form {\n//   display: grid;\n//   grid-template-columns: 1fr 3fr;\n//   gap: 1.25vmin;\n//   color: var(--text-light);\n// }\n\nform {\n  display:flex;\n  flex-direction:column;\n  justify-content: center;\n  align-items: center;\n  color: var(--text-light);\n}\n\nlabel {\n  font-size: 2vmax;\n  display: flex;\n  align-items: center;\n  color:var(--tan-5)\n}\n\ninput {\n  padding: 1vmin;\n  font-size: 2vmin;\n  border: .1vmin solid var(--tan-3);\n  border-radius: .5vmin;\n  color: var(--tan-3);\n  background-image: none !important; /* prevent lastpass */\n  outline: none;\n}\n\ninput:focus {\n  border-color: var(--mint);\n}\n\nbutton, a.button {\n  margin: 1vmin;\n  padding: 1vmin;\n  color: var(--text-dark);\n  background-color: var(--mint);\n  font-size: 2vmin;\n  font-weight: bold;\n  text-decoration: none;\n  text-align: center;\n  box-shadow: 0px 0px 2px 2px var(--tan-3);\n  border-radius: .5vmin;\n  outline: none;\n  transition: 0.5s;\n  cursor: pointer;\n}\n\n button:hover{\n  color: var(--tan-3);\n  // box-shadow: 0px 0px 5px 5px var(--tan-3);\n  box-shadow: 0 0 20px gray;\n}\n\nbutton.btn-sm {\n  font-size: 1.5vmin;\n  padding: .6vmin .8vmin;\n}\n\nbutton.btn-xs {\n  font-size: 1vmin;\n  padding: .4vmin .5vmin;\n}\n\nbutton:disabled, form:invalid button[type=\"submit\"] {\n  cursor: not-allowed;\n  background-color: var(--tan-3);\n}\n\nbutton[type=\"submit\"] {\n  grid-column: span 2;\n  margin: 1vmin 0 0;\n}\n\na:link, a:visited {\n  color: black;\n  text-decoration: none;\n}\n\na:hover, a:active {\n  color:black\n}","@import \"../../scss/styles.scss\";\n\n.CategoryList {\n    color: var(--text-light);\n    list-style: none;\n    padding: 0;\n    font-size: 1.8vw;\n    }\n    \n    ul{\n        @include flex-ctr-ctr;\n    }\n      \n    .CategoryList li {\n    padding: .6vmin;\n    margin: 0 2vmin;\n    font-size: 2.8vmin;\n    text-align: center;\n    border-radius: .5vmin;\n    margin-bottom: .5vmin;\n    }\n    \n    .CategoryList li:hover:not(.active) {\n    cursor: pointer;\n    background-color: var(--tan-3);\n    color: var(--white);\n    }\n    \n    .CategoryList li.active {\n    color: var(--text-dark);\n    background-color: var(--tan-1);\n    border: .1vmin solid var(--tan-3);\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"root": `G9im0gkswTYiT97bhMxf`,
@@ -1756,7 +1864,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.tIcNIAktppfFrRXPuonX {
   display: grid;
-  grid-template-columns: 5fr 1fr 1fr 1fr;
+  grid-template-columns: 5fr 1fr 0.5fr 0.5fr 1fr;
   justify-items: start;
   align-items: center;
   margin-top: none;
@@ -1784,7 +1892,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.tIcNIAktppfFrRXPuonX {
 }
 .tIcNIAktppfFrRXPuonX h1 {
   font-size: 3vw;
-}`, "",{"version":3,"sources":["webpack://./src/components/Header/Header.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sCAAA;EACA,oBAAA;EACA,mBAAA;EA2BA,gBAAA;AAzBJ;AACI;EACI,aAAA;EACA,mBAAA;AACR;AAEI;EACI,qBAAA;EACA,YAAA;AAAR;AAGI;EACI,kBAAA;EACA,qBAAA;AADR;AAII;EACI,kBAAA;EACA,MAAA;EACA,WAAA;EACA,qBAAA;EACA,kBAAA;EACA,YAAA;EACA,gBAAA;AAFR;AAKI;EACI,cAAA;AAHR","sourcesContent":[".Header{\n    display: grid;\n    grid-template-columns: 5fr 1fr 1fr 1fr;\n    justify-items: start;\n    align-items: center;\n\n\n    .flex{\n        display: flex;\n        align-items: center;\n    }\n\n    .link {\n        text-decoration: none;\n        color: black;\n      }\n\n    .container {\n        position: relative;\n        display: inline-block;\n    }\n\n    .cartQuantity{\n        position: absolute;\n        top:0;\n        right:-2px;\n        background-color: red;\n        border-radius: 50%;\n        color: white;\n        font-size: 2vmin;\n    }\n    margin-top: none;\n    h1{\n        font-size: 3vw;\n    }\n    \n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Header/Header.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,8CAAA;EACA,oBAAA;EACA,mBAAA;EA2BA,gBAAA;AAzBJ;AACI;EACI,aAAA;EACA,mBAAA;AACR;AAEI;EACI,qBAAA;EACA,YAAA;AAAR;AAGI;EACI,kBAAA;EACA,qBAAA;AADR;AAII;EACI,kBAAA;EACA,MAAA;EACA,WAAA;EACA,qBAAA;EACA,kBAAA;EACA,YAAA;EACA,gBAAA;AAFR;AAKI;EACI,cAAA;AAHR","sourcesContent":[".Header{\n    display: grid;\n    grid-template-columns: 5fr 1fr 0.5fr 0.5fr 1fr;\n    justify-items: start;\n    align-items: center;\n\n\n    .flex{\n        display: flex;\n        align-items: center;\n    }\n\n    .link {\n        text-decoration: none;\n        color: black;\n      }\n\n    .container {\n        position: relative;\n        display: inline-block;\n    }\n\n    .cartQuantity{\n        position: absolute;\n        top:0;\n        right:-2px;\n        background-color: red;\n        border-radius: 50%;\n        color: white;\n        font-size: 2vmin;\n    }\n    margin-top: none;\n    h1{\n        font-size: 3vw;\n    }\n    \n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"Header": `tIcNIAktppfFrRXPuonX`,
@@ -2258,17 +2366,31 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.RygkJgZmBHTETlLP3C3i {
   text-align: center;
+  height: 100vh;
+  background-image: url("https://i.imgur.com/TIG3Mby.jpg");
+  background-size: cover;
+  font-size: 2vmax;
 }
 .RygkJgZmBHTETlLP3C3i .E66wBLweVIvgG76J5c5T {
   display: flex;
   direction: column;
   justify-content: center;
   align-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/pages/AuthPage/AuthPage.module.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;AACJ;AAAI;EACE,aAAA;EACA,iBAAA;EACA,uBAAA;EACA,mBAAA;AAEN","sourcesContent":[".AuthPage{\n    text-align: center;\n    .center{\n      display: flex;\n      direction: column;\n      justify-content: center;\n      align-items:center\n    }\n}"],"sourceRoot":""}]);
+}
+.RygkJgZmBHTETlLP3C3i .wNjM3vLMM025zBTHZF61 {
+  background-color: var(--tan-3);
+  -webkit-text-decoration: dotted;
+  text-decoration: dotted;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--tan-4);
+  border-radius: 10%;
+}`, "",{"version":3,"sources":["webpack://./src/pages/AuthPage/AuthPage.module.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;EAOA,aAAA;EACA,wDAAA;EACA,sBAAA;EAWA,gBAAA;AAfJ;AAJI;EACE,aAAA;EACA,iBAAA;EACA,uBAAA;EACA,mBAAA;AAMN;AAAI;EACE,8BAAA;EACA,+BAAA;EACQ,uBAAA;EACR,eAAA;EACA,qBAAA;EACA,mBAAA;EACA,kBAAA;AAEN","sourcesContent":[".AuthPage{\n    text-align: center;\n    .center{\n      display: flex;\n      direction: column;\n      justify-content: center;\n      align-items:center\n    }\n    height: 100vh;\n    background-image: url(\"https://i.imgur.com/TIG3Mby.jpg\");\n    background-size: cover;\n\n    .toggle{\n      background-color:var(--tan-3) ;\n      -webkit-text-decoration: dotted;\n              text-decoration: dotted;\n      cursor: pointer;\n      display:inline-block;\n      color:var(--tan-4);\n      border-radius: 10%;\n    }\n    font-size: 2vmax;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"AuthPage": `RygkJgZmBHTETlLP3C3i`,
-	"center": `E66wBLweVIvgG76J5c5T`
+	"center": `E66wBLweVIvgG76J5c5T`,
+	"toggle": `wNjM3vLMM025zBTHZF61`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3448,9 +3570,9 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_sour-48d73b"], () => (__webpack_require__("./src/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_sour-65ba1c"], () => (__webpack_require__("./src/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.75c9712a958445e633f77dbc6a771b46.js.map
+//# sourceMappingURL=App.341360bb6efe611b41536e392be1ce61.js.map

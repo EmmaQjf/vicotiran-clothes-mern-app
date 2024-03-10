@@ -10,6 +10,8 @@ import Cloth from '../../components/Cloth/Cloth'
 import OrderDetail2 from '../../components/OrderDetail2/OrderDetail2';
 import InitialDisplay from '../../components/InitialDisplay/initialDisplay';
 import styles from './HomePage.module.scss'
+import SearchedItem from '../../components/SearchedItem/SearchedItem'
+import SearchBar from '../../components/SearchBar/SearchBar'
 
 export default function HomePage(
     { user, setUser }
@@ -95,12 +97,17 @@ export default function HomePage(
             navigate('/orders');
           }
      
+
+          //search bar 
+          const [input, setInput]= useState('')
+          console.log(input)
+        
           
     return(
 
         <div className={styles.HomePage}>
            
-           <Header setUser={setUser} quantity={quantity} setShowOrderCart={setShowOrderCart}/>
+           <Header setUser={setUser} quantity={quantity} input={input} setInput={setInput} setShowOrderCart={setShowOrderCart}/>
             <h3>Welcome! {user.name}</h3>
 
             <CategoryList
