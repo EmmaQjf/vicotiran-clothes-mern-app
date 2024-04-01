@@ -119,7 +119,12 @@ export default function HomePage(
             />
 
             {activeCat? null: <InitialDisplay/> }
-        
+
+            {/* <SearchedItem input={input}
+             setCurrentItem={setCurrentItem}
+                showClothPage={showClothPage}
+                setShowClothPage={setShowClothPage}/>
+         */}
 
             {showOrderCart?
                 <div className={styles.DarkOverlay}>

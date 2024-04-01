@@ -32,7 +32,9 @@ const AppRouter = () => {
 			</Routes>
 			</>
 			:
-		<AuthPage setUser={setUser}/>
+				<AuthPage setUser={setUser}/>
+	
+		
 		}
 		</main>
 		</Router>

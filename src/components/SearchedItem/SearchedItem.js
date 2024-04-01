@@ -1,9 +1,12 @@
-import ClothesList from "../ClothesList/ClothesList"
+import SearchClothesList from "../SearchClothesList/SearchClothesList"
 import * as itemsAPI from '../../utilities/items-api';
 
 import {useState, useEffect} from 'react'
 export default function SearchedItem (
-    {input}
+    {input,
+        setCurrentItem,
+        showClothPage,
+        setShowClothPage}
 ){
 
     
@@ -38,7 +41,9 @@ export default function SearchedItem (
         <>
          {
             searchedItems.length?
-            <ClothesList clothes={searchedItems}/>:'NO match items'
+            <SearchClothesList setCurrentItem={setCurrentItem}
+            showClothPage={showClothPage}
+            setShowClothPage={setShowClothPage} clothes={searchedItems}/>:'NO match items'
 
          }
         </>

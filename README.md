@@ -1,4 +1,4 @@
-# Chinese Learning API
+# Victorian Vintage Shop MERN App
 Welcome to the Victorian Vintage Shop MERN App! This full-stack web application is designed to provide users with a delightful shopping experience for Victorian-style clothing and accessories. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), this application offers a seamless interface for browsing and purchasing vintage clothing items inspired by the Victorian era.
 
 ## Table of content  
@@ -21,7 +21,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. copy the url
 2. Open Terminal and change the current working directory to the location where you want the cloned directory.
-3. clone the repo to the local directory: `git clone git@github.com:EmmaQjf/Chinese-learning-4models.git`
+3. clone the repo to the local directory.
 4. cd into the clone directionary.
 5. Open the code in VS `code .`  
 6. Install all the packages: express, mongoose, dotenv, nodemon, bcrypt, jsonwebtoken, mongodb-memory-server,morgan, jest, supertest:  `npm i`
